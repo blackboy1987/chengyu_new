@@ -11,7 +11,7 @@
                 <view bindtap="__e" class="btn btn-small btn-record mb-05 data-v-acc4b046" data-event-opts="{{[ [ 'tap',[ ['jump'] ] ] ]}}">现金记录</view>
             </view>
         </view>
-        <scroll-view class=" flex-2 money data-v-acc4b046" style="height: {{(listData.length/2)*90 +'rpx'}}" scrollY="{{true}}" showScrollbar="{{false}}">
+        <scroll-view class=" flex-2 money data-v-acc4b046" style="height: {{(listData.length/2)*84 +'rpx'}}" scrollY="{{true}}" showScrollbar="{{false}}">
             <view class="row flex-wrap justify-content-between data-v-acc4b046">
                 <block wx:if="{{statusBarHeight>20}}">
                     <view bindtap="__e" class="{{['money-item mt-15 data-v-acc4b046',item.active&&item.tag_bgcolor?'active2':item.active&&!item.tag_bgcolor?'active':'']}}" data-des="{{item.description}}" data-event-opts="{{[ [ 'tap',[ [ 'selectItem',['$0'],[ [ ['listData','',index] ] ] ] ] ] ]}}" wx:if="{{!item.received}}" wx:for="{{listData}}" wx:key="index">

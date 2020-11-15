@@ -16,7 +16,7 @@ Page({
             bg: "#fff",
             title: "提现",
             textColor: "#000",
-            inside: !1
+            inside: true,
         },
         systemInfo: wx.getSystemInfoSync(),
         money: 0,

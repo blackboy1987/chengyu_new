@@ -2,6 +2,7 @@
     height: 80rpx;
     position: relative;
     box-sizing: content-box;
+    text-align: center;
 }
 
 .custom-navigation .back.data-v-66344a77 {

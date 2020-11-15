@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbecbc78-0813-406c-886a-ad571bcf22e1" name="Default Changelist" comment="" />
+    <list default="true" id="bbecbc78-0813-406c-886a-ad571bcf22e1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/account/account.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/account/account.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/account/account.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/account/account.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/customNavigation/customNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/customNavigation/customNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/customNavigation/customNavigation.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/customNavigation/customNavigation.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/customNavigation/customNavigation.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/components/customNavigation/customNavigation.wxss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,10 +19,16 @@
       <list>
         <option value="Wechat mini program page js file(Page API)" />
         <option value="Wechat mini program page json file(Page API)" />
+        <option value="Wechat mini program component js file" />
+        <option value="Wechat mini program component json file" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1kJjYS6jzoDyWk2WFGbS3k1OKH4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -44,17 +57,41 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605425635885</updated>
-      <workItem from="1605425637022" duration="8164000" />
+      <workItem from="1605425637022" duration="9369000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1605433937328</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605433937328</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="2724" y="114" key="CommitChangelistDialog2" timestamp="1605433933862">
+      <screen x="1920" y="0" width="2560" height="1400" />
+    </state>
+    <state x="2724" y="114" key="CommitChangelistDialog2/0.0.1536.824/1920.0.2560.1400@1920.0.2560.1400" timestamp="1605433933862" />
+    <state x="2692" y="363" key="Vcs.Push.Dialog.v2" timestamp="1605434076843">
+      <screen x="1920" y="0" width="2560" height="1400" />
+    </state>
+    <state x="2692" y="363" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.2560.1400@1920.0.2560.1400" timestamp="1605434076843" />
     <state x="2829" y="355" width="742" height="690" key="find.popup" timestamp="1605426834118">
       <screen x="1920" y="0" width="2560" height="1400" />
     </state>
     <state x="2829" y="355" width="742" height="690" key="find.popup/0.0.1536.824/1920.0.2560.1400@1920.0.2560.1400" timestamp="1605426834118" />
+    <state x="2954" y="579" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1605433952040">
+      <screen x="1920" y="0" width="2560" height="1400" />
+    </state>
+    <state x="2954" y="579" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1536.824/1920.0.2560.1400@1920.0.2560.1400" timestamp="1605433952040" />
   </component>
 </project>

@@ -1,8 +1,10 @@
-Page({
-    props: {
+Component({
+    properties:{
         options: {
             type: Object,
-            defaultValue: {}
+            defaultValue: {
+                inside:true,
+            }
         },
         sh: {
             type: Boolean,
@@ -12,9 +14,12 @@ Page({
     data:{
         statusBarHeight: 20
     },
-    onLoad: function () {
-        this.setData({
-            statusBarHeight:wx.getSystemInfoSync().statusBarHeight
-        })
-    },
+    pageLifetimes:{
+        show() {
+            console.log("wx.getSystemInfoSync().statusBarHeight",wx.getSystemInfoSync().statusBarHeight)
+            this.setData({
+                statusBarHeight:wx.getSystemInfoSync().statusBarHeight,
+            });
+        }
+    }
 })

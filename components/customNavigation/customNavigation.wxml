@@ -1,8 +1,8 @@
-<view class="row justify-content-center align-items-center px-1 custom-navigation data-v-66344a77" style="{{'background-color:'+options.bg+';'+'padding-top:'+statusBarHeight+40+'rpx'+';'}}">
-    <view bindtap="__e" class="row justify-content-start align-items-center pr-1 back data-v-66344a77" data-event-opts="{{[ [ 'tap',[ ['backPage'] ] ] ]}}" wx:if="{{options.inside}}">
+<view class="row justify-content-center align-items-center px-1 custom-navigation data-v-66344a77" style="{{'background-color:'+options.bg+';'+'padding-top:'+(statusBarHeight+40)+'rpx'+';'}}">
+    <view class="row justify-content-start align-items-center pr-1 back data-v-66344a77" wx:if="{{options.inside}}">
         <view class="iconfont icon-arrow-left font-24 data-v-66344a77" style="{{'color:'+options.textColor+';'}}"></view>
         <text class="font-18 font-write data-v-66344a77" style="{{'color:'+options.textColor+';'}}">返回</text>
     </view>
-    <view class="font-18 font-write data-v-66344a77" style="{{'color:'+options.textColor+';'}}" wx:if="{{sh}}">{{options.title}}</view>
+    <view class="font-182 font-write data-v-66344a77" style="{{'color:'+options.textColor+';'}}" wx:if="{{sh}}">{{options.title}}</view>
     <view class="font-18 font-write data-v-66344a77" style="{{'color:'+options.textColor+';'}}" wx:else>{{options.title==='成语有财'?'成语有财 - 100%提现':options.title}}</view>
 </view>
