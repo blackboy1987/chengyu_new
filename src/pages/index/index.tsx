@@ -154,6 +154,7 @@ export default () => {
             <Image className="w-100 h-100" src={icon_invite} />
           </View>
         </View>
+
       </View>
   );
 };
