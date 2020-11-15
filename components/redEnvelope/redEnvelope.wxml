@@ -1,0 +1,23 @@
+<view class="column justify-content-center align-items-center popup data-v-69815380">
+    <view class="popup-main data-v-69815380">
+        <image class="bg data-v-69815380" src="../../static/images/common/redEnvelope/bg.png"></image>
+        <view class="column justify-content-between align-items-center content data-v-69815380">
+            <view class="column font-write align-center data-v-69815380" wx:if="{{type==='new'}}">
+                <text class="font-16 mt-5 t2 data-v-69815380">新用户专享</text>
+                <text class="font-30 mt-1 t1 data-v-69815380">现金红包</text>
+            </view>
+            <view class="column font-write align-center data-v-69815380" wx:else>
+                <text class="font-30 mt-5 t1 data-v-69815380">离线奖励</text>
+                <text class="font-16 mt-1 t2 data-v-69815380">最高可获得<text class="font-22 mx-05 highlight data-v-69815380">10</text>元红包</text>
+            </view>
+            <view bindtap="__e" class="open data-v-69815380" data-event-opts="{{[ [ 'tap',[ ['open'] ] ] ]}}">
+                <image class="{{['open-img data-v-69815380',opening?'spin':'']}}" src="../../static/images/common/redEnvelope/open.png"></image>
+            </view>
+            <text class="font-12 font-write mb-2 t3 hb-tip data-v-69815380" wx:if="{{sh}}">观看完整视频领取红包</text>
+            <text class="font-12 font-write mb-2 t3 hb-tip data-v-69815380" wx:else>可提现</text>
+            <view bindtap="__e" class="iconfont icon-close font-20 p-1 close data-v-69815380" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}"></view>
+        </view>
+        <image class="light data-v-69815380" src="../../static/images/common/redEnvelope/light.png" style="width:350rpx;height:350rpx;"></image>
+    </view>
+    <popup-bottom-ad bind:__l="__l" class="data-v-69815380" vueId="cd1e7a04-1"></popup-bottom-ad>
+</view>

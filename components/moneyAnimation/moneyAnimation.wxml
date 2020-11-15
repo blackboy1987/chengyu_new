@@ -1,0 +1,10 @@
+<view class="collect-money">
+    <image class="image i1" src="../../static/images/common/icon_red_envelope.png"></image>
+    <image class="image i2" src="../../static/images/common/icon_red_envelope.png"></image>
+    <image class="image i3" src="../../static/images/common/icon_red_envelope.png"></image>
+    <image class="image i4" src="../../static/images/common/icon_red_envelope.png"></image>
+    <image class="image i5" src="../../static/images/common/icon_red_envelope.png"></image>
+    <image class="image i6" src="../../static/images/common/icon_red_envelope.png"></image>
+    <image class="image i7" src="../../static/images/common/icon_red_envelope.png"></image>
+    <image class="image i8" src="../../static/images/common/icon_red_envelope.png"></image>
+</view>

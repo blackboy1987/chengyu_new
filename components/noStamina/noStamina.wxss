@@ -1,0 +1,46 @@
+.popup-custom .icon-img.data-v-06937e6b {
+    width: 127rpx;
+    height: 164rpx;
+}
+
+.popup-custom .icon .num.data-v-06937e6b {
+    width: 80rpx;
+    color: #f72526;
+}
+
+.popup-custom .banner-ad.data-v-06937e6b {
+    width: 100%;
+    min-height: 200rpx;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.popup-custom .banner-ad .showAd.data-v-06937e6b {
+    -webkit-box-ordinal-group: 0;
+    order: -1;
+}
+
+.popup-custom .banner-ad .ad.data-v-06937e6b {
+    z-index: 2;
+}
+
+.popup-custom .banner-ad .no-ad.data-v-06937e6b {
+    width: 580rpx;
+    min-height: 200rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.popup-custom .banner-ad .no-ad-btn.data-v-06937e6b {
+    width: 70%;
+    height: 100rpx;
+    border: 2rpx dashed #f72526;
+    color: #f72526;
+    position: relative;
+    animation: bs .8s linear infinite;
+    background-color: #fff;
+}

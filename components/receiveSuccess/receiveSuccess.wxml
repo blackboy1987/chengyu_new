@@ -1,0 +1,20 @@
+<view class="column justify-content-center align-items-center popup data-v-c995a346">
+    <view class="popup-main data-v-c995a346">
+        <image class="bg data-v-c995a346" src="../../static/images/common/redEnvelope/bg.png"></image>
+        <view class="column justify-content-between align-items-center content data-v-c995a346">
+            <view class="column font-write align-center data-v-c995a346">
+                <text class="font-22 mt-5 t2 data-v-c995a346">领取成功</text>
+                <text class="mt-1 ml-15 t1 data-v-c995a346">
+                    <text class="font-50 font-bold data-v-c995a346">{{options.value}}</text>
+                    <text class="font-14 ml-05 data-v-c995a346">元</text>
+                </text>
+            </view>
+            <image bindtap="__e" class="mt-1 open data-v-c995a346" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}" src="../../static/images/common/redEnvelope/opened.png"></image>
+            <text class="font-12 font-write mb-2 t3 hb-tip data-v-c995a346">可提现</text>
+            <view bindtap="__e" class="iconfont icon-close font-20 p-1 close data-v-c995a346" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}"></view>
+        </view>
+        <image class="light data-v-c995a346" src="../../static/images/common/redEnvelope/light.png" style="width:350rpx;height:350rpx;"></image>
+    </view>
+    <countdown-click bind:__l="__l" bind:close="__e" class="data-v-c995a346" data-event-opts="{{[ [ '^close',[ ['close'] ] ] ]}}" vueId="15c74642-1" wx:if="{{countdown}}"></countdown-click>
+    <popup-bottom-ad bind:__l="__l" class="data-v-c995a346" vueId="15c74642-2"></popup-bottom-ad>
+</view>

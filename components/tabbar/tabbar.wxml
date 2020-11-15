@@ -1,0 +1,17 @@
+<view class="d-flex row justify-content-between align-items-center tabbar data-v-488d4e90" style="{{'padding-bottom:'+($root.g0!==-1?'40rpx':'0')+';'}}">
+    <view bindtap="__e" class="d-flex align-items-center ml-3 tabbar-item data-v-488d4e90" data-event-opts="{{[ [ 'tap',[ [ 'jump',[0,'appList'] ] ] ] ]}}">
+        <image class="image-treasure data-v-488d4e90" src="../../static/images/common/tabbar_applist_active.png" wx:if="{{index==0}}"></image>
+        <image class="image-treasure data-v-488d4e90" src="../../static/images/common/tabbar_applist.png" wx:else></image>
+        <view class="{{['font-10 data-v-488d4e90',index===0?'red':'']}}">领体力</view>
+    </view>
+    <view bindtap="__e" class="d-flex align-items-center tabbar-home data-v-488d4e90" data-event-opts="{{[ [ 'tap',[ [ 'jump',[1,'home'] ] ] ] ]}}">
+        <image class="image-home data-v-488d4e90" src="../../static/images/common/tabbar_home.active.png" wx:if="{{index==1}}"></image>
+        <image class="image-home data-v-488d4e90" src="../../static/images/common/tabbar_home.png" wx:else></image>
+        <view class="{{['font-10 data-v-488d4e90',index===1?'red':'']}}">开始答题</view>
+    </view>
+    <view bindtap="__e" class="d-flex align-items-center mr-3 tabbar-item data-v-488d4e90" data-event-opts="{{[ [ 'tap',[ [ 'jump',[2,'account'] ] ] ] ]}}">
+        <image class="tabbar_account data-v-488d4e90" src="../../static/images/common/tabbar_account_active.png" wx:if="{{index==2}}"></image>
+        <image class="tabbar_account data-v-488d4e90" src="../../static/images/common/tabbar_account.png" wx:else></image>
+        <view class="font-10 data-v-488d4e90 index===2?'red':''">提现</view>
+    </view>
+</view>

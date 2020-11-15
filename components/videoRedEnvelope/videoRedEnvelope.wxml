@@ -1,0 +1,24 @@
+<view class="column justify-content-center align-items-center popup data-v-30f8d678">
+    <view class="popup-main data-v-30f8d678">
+        <image class="bg data-v-30f8d678" src="../../static/images/common/redEnvelope/bg.png"></image>
+        <view class="column justify-content-between align-items-center content data-v-30f8d678">
+            <view class="column font-write align-center data-v-30f8d678">
+                <text class="font-30 mt-4 t1 data-v-30f8d678">100%可提现</text>
+                <text class="font-16 mt-1 t2 data-v-30f8d678">最高可获得<text class="font-22 mx-05 highlight data-v-30f8d678">100</text>元红包</text>
+            </view>
+            <image class="mt-2 data-v-30f8d678" src="../../static/images/common/redEnvelope/icon_video.png" style="width:95rpx;height:71rpx;"></image>
+            <view class="progress data-v-30f8d678">
+                <view class="progress-bar data-v-30f8d678" style="{{'width:'+(current_number*100/total_number)+'%'+';'}}"></view>
+                <view class="row justify-content-center align-items-center font-12 font-bold font-write progress-value data-v-30f8d678">{{''+current_number+'/'+total_number+''}}</view>
+            </view>
+            <view class="font-12 count-tips data-v-30f8d678">{{'观看'+total_number+'次视频可开启红包'}}</view>
+            <view bindtap="__e" class="open data-v-30f8d678" data-event-opts="{{[ [ 'tap',[ ['open'] ] ] ]}}">
+                <image class="{{['open-img data-v-30f8d678',opening?'spin':'']}}" src="../../static/images/common/redEnvelope/open.png"></image>
+            </view>
+            <text class="font-12 font-write mb-2 t3 hb-tip data-v-30f8d678" wx:if="{{sh}}">观看完整视频领取红包</text>
+            <text class="font-12 font-write mb-2 t3 hb-tip data-v-30f8d678" wx:else>可提现</text>
+            <view bindtap="__e" class="iconfont icon-close font-20 p-1 close data-v-30f8d678" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}"></view>
+        </view>
+        <image class="light data-v-30f8d678" src="../../static/images/common/redEnvelope/light.png" style="width:350rpx;height:350rpx;"></image>
+    </view>
+</view>

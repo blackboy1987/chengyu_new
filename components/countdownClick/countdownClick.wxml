@@ -1,0 +1,5 @@
+<view bindtap="__e" class="row justify-content-center align-items-center font-write component" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}" style="{{'bottom:'+( statusBarHeight>22?wdBottom[0]:wdBottom[1] )+';'}}">
+    <view class="iconfont icon-close mr-1"></view>
+    <view class="font-16 font-close">点击关闭<text class="ml-05" wx:if="{{number}}">{{number}}</text>
+    </view>
+</view>

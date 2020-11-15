@@ -1,0 +1,16 @@
+<view class="column justify-content-center align-items-center popup popup-jump data-v-6fb396e0">
+    <view class="column justify-content-between align-items-center px-2 popup-main data-v-6fb396e0">
+        <text class="font-18 font-bold mt-2 data-v-6fb396e0">试玩领体力</text>
+        <view class="font-14 py-1 w-100 data-v-6fb396e0">
+            <swiper autoplay="{{true}}" circular="{{false}}" class="swiper data-v-6fb396e0" current="{{currentIndex}}" duration="{{300}}" indicatorDots="{{false}}">
+                <swiper-item class="data-v-6fb396e0" wx:for="{{options.step_images}}" wx:key="index">
+                    <image class="data-v-6fb396e0" mode="aspectFill" src="{{item.image}}" style="width:600rpx;height:900rpx;"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view bindtap="__e" class="btn btn-red w-100 data-v-6fb396e0" data-event-opts="{{[ [ 'tap',[ ['openApp'] ] ] ]}}">{{'根据要求，试玩'+options.duration+'秒'}}</view>
+        <view class="row justify-content-center align-items-center font-12 gray-7 mt-1 mb-2 data-v-6fb396e0">
+            <view class="iconfont icon-tips data-v-6fb396e0"></view>不按照要求，将无法获得奖励</view>
+        <view bindtap="__e" class="iconfont icon-close font-20 gray-6 p-1 close data-v-6fb396e0" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}"></view>
+    </view>
+</view>

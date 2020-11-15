@@ -1,0 +1,17 @@
+<view class="column justify-content-center align-items-center popup">
+    <view class="popup-main">
+        <image class="bg" src="../../static/images/common/redEnvelope/bg.png"></image>
+        <view class="column justify-content-between align-items-center content">
+            <view class="column font-write align-center">
+                <text class="font-22 mt-5 t2">答题失败</text>
+                <text class="font-14 t2" wx:if="{{options.isDeductMoney&&options.deductMoney&&!sh}}">{{'扣除金额 -'+$root.g0+'元'}}</text>
+            </view>
+            <view class="mt-1 failure">
+                <image src="../../static/images/common/redEnvelope/failure.png" style="width:166rpx;height:166rpx;"></image>
+            </view>
+            <view bindtap="__e" class="btn btn-yellow btn-again mb-2" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}">再次挑战</view>
+            <view bindtap="__e" class="iconfont icon-close font-20 p-1 close" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}"></view>
+        </view>
+    </view>
+    <popup-bottom-ad bind:__l="__l" vueId="7d06ebb0-1"></popup-bottom-ad>
+</view>

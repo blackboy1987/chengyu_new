@@ -1,0 +1,9 @@
+.popup-custom .icon-img.data-v-3a1bc0f7 {
+    width: 127rpx;
+    height: 164rpx;
+}
+
+.popup-custom .icon .num.data-v-3a1bc0f7 {
+    width: 80rpx;
+    color: #852c00;
+}

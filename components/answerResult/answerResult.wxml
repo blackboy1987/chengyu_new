@@ -1,0 +1,120 @@
+<view class="column justify-content-center align-items-center popup data-v-389d38fc">
+    <popup-bottom-ad bind:__l="__l" class="data-v-389d38fc" vueId="0d0cd022-1"></popup-bottom-ad>
+    <view class="popup-main data-v-389d38fc" wx:if="{{options.receiveType==='share'}}">
+        <image class="bg data-v-389d38fc" src="../../static/images/common/redEnvelope/bg.png"></image>
+        <view class="column justify-content-between align-items-center content data-v-389d38fc">
+            <view class="column font-write align-center data-v-389d38fc">
+                <text class="font-22 mt-5 t2 data-v-389d38fc">现金红包 x1</text>
+                <text class="font-14 font-write t3 hb-tip data-v-389d38fc">可提现</text>
+            </view>
+            <block wx:if="{{sh}}">
+                <image bindtap="__e" class="mt-1 open2 data-v-389d38fc" data-event-opts="{{[ [ 'tap',[ ['open'] ] ] ]}}" src="../../static/images/common/redEnvelope/btn_hb.png" style="width:410rpx;height:104rpx;"></image>
+                <text class="font-12 font-write mb-4 t3 hb-tip data-v-389d38fc">观看完整视频领取红包</text>
+            </block>
+            <block wx:else>
+                <view class="mt-1 share data-v-389d38fc">
+                    <image class="data-v-389d38fc" src="../../static/images/common/redEnvelope/open_share.png" style="width:182rpx;height:182rpx;"></image>
+                    <button class="btn-transparent data-v-389d38fc" data-popup="showAnswerResult" openType="share"></button>
+                </view>
+                <text class="font-12 font-write mb-2 t3 hb-tip data-v-389d38fc">请分享到群或者好友</text>
+            </block>
+            <view bindtap="__e" class="iconfont icon-close font-20 close data-v-389d38fc" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}" wx:if="{{!countdown}}"></view>
+        </view>
+        <image class="light data-v-389d38fc" src="../../static/images/common/redEnvelope/light.png" style="width:350rpx;height:350rpx;" wx:if="{{!sh}}"></image>
+    </view>
+    <view class="popup-main data-v-389d38fc" wx:if="{{options.receiveType==='video'}}">
+        <image class="bg data-v-389d38fc" src="../../static/images/common/redEnvelope/bg.png"></image>
+        <view class="column justify-content-between align-items-center content data-v-389d38fc">
+            <view class="column font-write align-center data-v-389d38fc">
+                <text class="font-22 mt-5 t2 data-v-389d38fc">现金红包 x1</text>
+                <text class="font-14 font-write t3 hb-tip data-v-389d38fc">可提现</text>
+            </view>
+            <block wx:if="{{sh}}">
+                <image bindtap="__e" class="mt-1 open2 data-v-389d38fc" data-event-opts="{{[ [ 'tap',[ ['open'] ] ] ]}}" src="../../static/images/common/redEnvelope/btn_hb.png" style="width:410rpx;height:104rpx;"></image>
+                <text class="font-12 font-write mb-4 t3 hb-tip data-v-389d38fc">观看完整视频领取红包</text>
+            </block>
+            <block wx:else>
+                <image bindtap="__e" class="{{['mt-1 open data-v-389d38fc',opening?'spin':'']}}" data-event-opts="{{[ [ 'tap',[ ['open'] ] ] ]}}" src="../../static/images/common/redEnvelope/open.png"></image>
+                <text class="font-12 font-write mb-2 t3 hb-tip data-v-389d38fc">观看完整视频领取红包</text>
+            </block>
+            <view bindtap="__e" class="iconfont icon-close font-20 close data-v-389d38fc" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}" wx:if="{{!countdown}}"></view>
+        </view>
+        <image class="light data-v-389d38fc" src="../../static/images/common/redEnvelope/light.png" style="width:350rpx;height:350rpx;" wx:if="{{!sh}}"></image>
+    </view>
+    <view class="popup-main banner data-v-389d38fc" wx:if="{{options.receiveType==='banner'}}">
+        <view class="column font-write align-center data-v-389d38fc">
+            <text class="font-22 mt-3 t2 data-v-389d38fc">现金红包 x1</text>
+            <text class="font-14 font-write t3 hb-tip data-v-389d38fc">可提现</text>
+        </view>
+        <view class="column justify-content-center align-items-center banner-content data-v-389d38fc">
+            <image class="my-2 red-envelope data-v-389d38fc" src="../../static/images/account/redEnvelopeBg.png" style="width:150rpx;height:188rpx;"></image>
+            <image class="light data-v-389d38fc" src="../../static/images/common/redEnvelope/light.png"></image>
+        </view>
+        <view class="align-center font-write font-18 t2 zoom data-v-389d38fc">
+            <text class="data-v-389d38fc" wx:if="{{!sh}}">{{'↓↓点击下图体验 '+bannerInterval+'秒 即可领取↓↓'}}</text>
+        </view>
+        <view class="row flex-nowrap justify-content-center align-items-center banner-ad data-v-389d38fc">
+            <view class="w-100 px-1 ad data-v-389d38fc">
+                <ad class="data-v-389d38fc" unitId="{{bannerID}}"></ad>
+            </view>
+            <view class="row justify-content-center align-items-center no-ad data-v-389d38fc" wx:if="{{showNoAd}}">
+                <view class="row justify-content-center align-items-center gray-8 no-ad-btn data-v-389d38fc" wx:if="{{showShare}}">
+                    <view class="iconfont icon-share font-red font-22 mr-1 data-v-389d38fc"></view>
+                    <text class="font-18 font-red data-v-389d38fc">分享到群或好友</text>
+                    <button class="btn-transparent data-v-389d38fc" data-popup="noAd" openType="share"></button>
+                </view>
+                <view bindtap="__e" class="row justify-content-center align-items-center gray-8 no-ad-btn data-v-389d38fc" data-event-opts="{{[ [ 'tap',[ ['videoAd'] ] ] ]}}" wx:else>
+                    <view class="iconfont icon-play font-red font-22 mr-1 data-v-389d38fc"></view>
+                    <text class="font-18 font-red data-v-389d38fc">观看视频领取</text>
+                </view>
+            </view>
+        </view>
+        <view bindtap="__e" class="iconfont icon-close font-20 close data-v-389d38fc" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}" wx:if="{{!countdown}}"></view>
+    </view>
+    <view class="popup-main videoBanner data-v-389d38fc" wx:if="{{options.receiveType==='videoBanner'}}">
+        <view class="column font-write align-center data-v-389d38fc">
+            <text class="font-22 mt-3 t2 data-v-389d38fc">现金红包 x1</text>
+            <text class="font-14 font-write t3 hb-tip data-v-389d38fc">可提现</text>
+        </view>
+        <view class="align-center font-write font-18 mt-2 t2 zoom data-v-389d38fc">
+            <text class="data-v-389d38fc" wx:if="{{!sh}}">{{'↓↓点击下图体验 '+bannerInterval+'秒 即可领取↓↓'}}</text>
+        </view>
+        <view class="row flex-nowrap justify-content-center align-items-center w-100 video-banner data-v-389d38fc">
+            <ad adTheme="white" adType="video" class="data-v-389d38fc" unitId="adunit-808fd06361778e76"></ad>
+        </view>
+        <view bindtap="__e" class="iconfont icon-close font-20 close data-v-389d38fc" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}" wx:if="{{!countdown}}"></view>
+    </view>
+    <view class="popup-main gridAd data-v-389d38fc" wx:if="{{options.receiveType==='grid'}}">
+        <view class="column font-write align-center data-v-389d38fc">
+            <text class="font-22 mt-3 t2 data-v-389d38fc">现金红包 x1</text>
+            <text class="font-14 font-write t3 hb-tip data-v-389d38fc">可提现</text>
+        </view>
+        <view class="column justify-content-center align-items-center banner-content data-v-389d38fc">
+            <image class="my-2 red-envelope data-v-389d38fc" src="../../static/images/account/redEnvelopeBg.png" style="width:150rpx;height:188rpx;"></image>
+            <image class="light data-v-389d38fc" src="../../static/images/common/redEnvelope/light.png"></image>
+        </view>
+        <view class="align-center font-write font-18 mt-2 t2 zoom data-v-389d38fc">
+            <text class="data-v-389d38fc" wx:if="{{!sh}}">{{'↓↓点击下图体验 '+bannerInterval+'秒 即可领取↓↓'}}</text>
+        </view>
+        <view class="row flex-nowrap justify-content-center align-items-center w-100 bg-white pt-1 grid data-v-389d38fc">
+            <view class="w-100 grid-wrap position-relative data-v-389d38fc">
+                <view class="w-100  data-v-389d38fc" style="margin-top:-60rpx;z-index:2;position:absolute;left:0;top:0;">
+                    <ad adTheme="white" adType="grid" class="data-v-389d38fc" gridCount="5" gridOpacity="1" unitId="adunit-108924707d706392"></ad>
+                </view>
+                <view class="row justify-content-center align-items-center no-ad data-v-389d38fc" style="top:-30rpx;" wx:if="{{showNoAd}}">
+                    <view class="row justify-content-center align-items-center gray-8 no-ad-btn data-v-389d38fc" wx:if="{{showShare}}">
+                        <view class="iconfont icon-share font-red font-22 mr-1 data-v-389d38fc"></view>
+                        <text class="font-18 font-red data-v-389d38fc">分享到群或好友</text>
+                        <button class="btn-transparent data-v-389d38fc" data-popup="noAd" openType="share"></button>
+                    </view>
+                    <view bindtap="__e" class="row justify-content-center align-items-center gray-8 no-ad-btn data-v-389d38fc" data-event-opts="{{[ [ 'tap',[ ['videoAd'] ] ] ]}}" wx:else>
+                        <view class="iconfont icon-play font-red font-22 mr-1 data-v-389d38fc"></view>
+                        <text class="font-18 font-red data-v-389d38fc">观看视频领取</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="__e" class="iconfont icon-close font-20 close data-v-389d38fc" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}" wx:if="{{!countdown}}"></view>
+    </view>
+    <countdown-click bind:__l="__l" bind:close="__e" class="data-v-389d38fc" data-event-opts="{{[ [ '^close',[ ['close'] ] ] ]}}" vueId="0d0cd022-2" wx:if="{{countdown}}"></countdown-click>
+</view>

@@ -1,0 +1,54 @@
+<view class="h-100 column page data-v-acc4b046">
+    <custom-navigation options="{{customOptions}}" vueId="f3ef9ab4-1"></custom-navigation>
+    <view class="column flex-2 align-items-center px-15 data-v-acc4b046" style="{{'margin-bottom:'+(g0!==-1?'138rpx':'98rpx')+';'}}">
+        <view class="row justify-content-between align-items-end px-2 py-2 w-100 summary data-v-acc4b046">
+            <view class="column font-write data-v-acc4b046">
+                <text class="font-14 title data-v-acc4b046">可提现金额</text>
+                <view class="row align-items-end font-30 font-bold data-v-acc4b046">{{money+''}}<text class="font-14 ml-05 font-normal data-v-acc4b046" style="margin-bottom:14rpx;">元</text>
+                </view>
+            </view>
+            <view class="data-v-acc4b046">
+                <view bindtap="__e" class="btn btn-small btn-record mb-05 data-v-acc4b046" data-event-opts="{{[ [ 'tap',[ ['jump'] ] ] ]}}">现金记录</view>
+            </view>
+        </view>
+        <scroll-view class=" flex-2 money data-v-acc4b046" style="height: {{(listData.length/2)*90 +'rpx'}}" scrollY="{{true}}" showScrollbar="{{false}}">
+            <view class="row flex-wrap justify-content-between data-v-acc4b046">
+                <block wx:if="{{statusBarHeight>20}}">
+                    <view bindtap="__e" class="{{['money-item mt-15 data-v-acc4b046',item.active&&item.tag_bgcolor?'active2':item.active&&!item.tag_bgcolor?'active':'']}}" data-des="{{item.description}}" data-event-opts="{{[ [ 'tap',[ [ 'selectItem',['$0'],[ [ ['listData','',index] ] ] ] ] ] ]}}" wx:if="{{!item.received}}" wx:for="{{listData}}" wx:key="index">
+                        <view class="font-20 font-bold data-v-acc4b046">{{item.money+'元'}}</view>
+                        <view class="font-12 gray-6 des align-center data-v-acc4b046">{{item.description}}</view>
+                        <view class="slogan data-v-acc4b046" style="{{'background-color:'+item.tag_bgcolor+';'}}">{{item.tag}}</view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view bindtap="__e" class="{{['money-item mt-1 data-v-acc4b046',item.active&&item.tag_bgcolor?'active2':item.active&&!item.tag_bgcolor?'active':'']}}" data-des="{{item.description}}" data-event-opts="{{[ [ 'tap',[ [ 'selectItem',['$0'],[ [ ['listData','',index] ] ] ] ] ] ]}}" wx:if="{{!item.received}}" wx:for="{{listData}}" wx:key="index">
+                        <view class="font-20 font-bold data-v-acc4b046">{{item.money+'元'}}</view>
+                        <view class="font-12 gray-6 des align-center data-v-acc4b046">{{item.description}}</view>
+                        <view class="slogan data-v-acc4b046" style="{{'background-color:'+item.tag_bgcolor+';'}}">{{item.tag}}</view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+        <view class="py-1 money-des font-16 w-100 align-center mt-1 data-v-acc4b046" wx:if="{{invalid_user&&defaultItem.tag==='每日提'}}">每日答题红包已抢完，明日再来！</view>
+        <view class="py-1 money-des font-16 w-100 align-center mt-1 data-v-acc4b046" wx:else>{{defaultItem.fail_result}}</view>
+        <view class="data-v-acc4b046" style="margin-bottom:138rpx;">
+            <view bindtap="__e" class="btn btn-withdraw btn-green data-v-acc4b046" data-event-opts="{{[ [ 'tap',[ ['withdraw'] ] ] ]}}" wx:if="{{defaultItem.condition_complete&&!invalid_user}}">立即提现</view>
+            <view bindtap="__e" class="btn btn-withdraw btn-green disabled data-v-acc4b046" data-event-opts="{{[ [ 'tap',[ [ 'e0',['$event'] ] ] ] ]}}" wx:else>立即提现</view>
+        </view>
+    </view>
+    <popup-base bind:__l="__l" bind:close="__e" class="popup-success data-v-acc4b046" data-event-opts="{{[ [ '^close',[ ['closeWithdrawSuccess'] ] ] ]}}" options="{{withdrawSuccessData}}" vueId="f3ef9ab4-2" vueSlots="{{['default']}}" wx:if="{{showWithdrawSuccess}}">
+        <view class="column justify-content-center align-items-center my-4 data-v-acc4b046">
+            <view class="column align-items-end position-relative red-envelope data-v-acc4b046">
+                <image class="red-envelope-bg data-v-acc4b046" src="../../static/images/account/redEnvelopeBg.png"></image>
+                <view class="column justify-content-end align-items-center pb-1 font-16 font-write font-bold num data-v-acc4b046" wx:if="{{defaultItem.money}}">{{defaultItem.money+'元'}}</view>
+            </view>
+        </view>
+        <image class="light data-v-acc4b046" src="../../static/images/common/redEnvelope/light.png" style="width:350rpx;height:350rpx;"></image>
+    </popup-base>
+    <popup-base bind:__l="__l" bind:close="__e" class="popup-success data-v-acc4b046" data-event-opts="{{[ [ '^close',[ ['closeWithdrawTip'] ] ] ]}}" options="{{WithdrawTipData}}" vueId="f3ef9ab4-3" vueSlots="{{['default']}}" wx:if="{{showWithdrawTip}}">
+        <view class="justify-content-center align-items-center my-4 data-v-acc4b046">
+            <view class="column justify-content-center align-items-center pb-1 font-16 data-v-acc4b046" wx:if="{{invalid_user&&defaultItem.tag==='每日提'}}">每日答题红包已抢完，明日再来！</view>
+            <view class="column justify-content-center align-items-center pb-1 font-16 data-v-acc4b046" wx:else>{{defaultItem.fail_result}}</view>
+        </view>
+    </popup-base>
+</view>

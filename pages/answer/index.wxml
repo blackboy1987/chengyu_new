@@ -1,0 +1,75 @@
+<view class="page bg">
+    <button class="btn-transparent" style="z-index:999;" wx:if="{{!sh&&forced}}"></button>
+    <button class="btn-transparent" openType="getUserInfo" withCredentials="true" wx:if="{{!hasUserInfo&&canIUse}}"></button>
+    <view class="row align-items-center ml-15 head-item" wx:if="{{!sh}}">
+        <image src="../../static/images/common/icon_red_envelope.png" style="width:61rpx;height:68rpx;"></image>
+        <view class="row justify-content-between align-items-center head-item-value">
+            <view class="font-14 align-right money moneyChange?'animation':''">{{(money!=null?money+'元':'')+''}}</view>
+            <image class="ml-05" src="../../static/images/common/btn_withdraw.png" style="width:99rpx;height:52rpx;"></image>
+        </view>
+    </view>
+    <view class="row align-items-center ml-15 head-item">
+        <image src="../../static/images/common/stamina.png" style="width:52rpx;height:67rpx;"></image>
+        <view class="row justify-content-between align-items-center head-item-value2">
+            <text class="font-14">{{accountInfo.key}}</text>
+            <image bindtap="__e" class="ml-05" src="../../static/images/common/btn_increase.png" style="width:52rpx;height:52rpx;"></image>
+        </view>
+    </view>
+    <view class="column align-items-center p-1 float-task" wx:if="{{!sh}}">
+        <view class="dot"></view>
+        <text>每</text>
+        <text>日</text>
+        <text>提</text>
+        <text>现</text>
+    </view>
+    <view class="column flex-2 justify-content-around align-items-center answer" style="{{'margin-bottom:'+(g2!==-1?'138rpx':'98rpx')+';'}}" wx:if="{{pageName==='answer'}}">
+        <view class="row justify-content-center align-items-center px-2 answer-head" wx:if="{{!sh}}">
+            <view class="column">
+                <view class="mt-1 progress">
+                    <view class="progress-bar" style="{{'width:'+(question.continuous_count*100/question.continuous_max)+'%'+';'}}"></view>
+                    <view class="row justify-content-center align-items-center font-14 font-bold font-write progress-value">{{''+question.continuous_count+'/'+question.continuous_max+''}}</view>
+                </view>
+                <view class="font-14 gray-8 mt-05 align-center">连续答对红包<text class="font-red">{{question.continuous_count}}</text>个，还差<text class="font-red">{{(question.continuous_max-question.continuous_count<=0?0:question.continuous_max-question.continuous_count)+''}}</text>个提现</view>
+            </view>
+            <view bindtap="__e" class="column task" data-event-opts="{{[ [ 'tap',[ ['taskCompleted'] ] ] ]}}">
+                <image src="../../static/images/answer/task2.png" style="width:81rpx;height:98rpx;" wx:if="{{question.continuous_count===question.continuous_max}}"></image>
+                <image src="../../static/images/answer/task1.png" style="width:81rpx;height:98rpx;" wx:else></image>
+                <view class="column justify-content-end align-items-center pb-05 font-bold font-12 font-write txt">{{''+taskMoney+''}}</view>
+            </view>
+            <image class="light" src="../../static/images/answer/light.png" style="width:159rpx;height:152rpx;"></image>
+        </view>
+        <view class="mt-5" wx:else></view>
+        <view class="column justify-content-between align-content-center wrapper question">
+            <view class="font18 align-center count">{{'第 '+question.answer_question_num+' 关'}}</view>
+            <view class="row justify-content-center align-items-center idiom">
+                <view class="{{['column justify-content-center align-items-center idiom-item ',item.active?'special':'']}}" wx:for="{{question.title}}" wx:key="index">
+                    <text>{{item.word==='＿'?'':item.word}}</text>
+                    <view class="line line_horizontal line_top"></view>
+                    <view class="line line_vertical line_right"></view>
+                    <view class="line line_horizontal line_bottom"></view>
+                    <view class="line line_vertical line_left"></view>
+                </view>
+            </view>
+            <view class="row justify-content-end align-items-center pr-4 mb-15 btn-group">
+                <view bindtap="__e" class="row px-1 py-05 ml-1 justify-content-center align-items-center btn-group-item" data-event-opts="{{[ [ 'tap',[ [ 'switchPage',['home',1] ] ] ] ]}}">
+                    <view class="iconfont icon-home font-20 mr-05"></view>
+                    <text class="font-14 ">首页</text>
+                </view>
+                <view bindtap="__e" class="row px-1 py-05 ml-1 justify-content-center align-items-center btn-group-item" data-event-opts="{{[ [ 'tap',[ ['adsForTips'] ] ] ]}}">
+                    <view class="iconfont icon-play font-20 mr-05"></view>
+                    <text class="font-14 ">提示</text>
+                </view>
+                <view class="row px-1 py-05 ml-1 justify-content-center align-items-center btn-group-item">
+                    <view class="iconfont icon-share font-20 mr-05"></view>
+                    <text class="font-14 ">求助</text>
+                    <button class="share" openType="share"></button>
+                </view>
+            </view>
+        </view>
+        <view class="{{['row justify-content-between align-items-center words',statusBarHeight>20?'mt-2':'']}}">
+            <view bindtap="__e" class="{{['column justify-content-center align-items-center words-item',item.active?'active':'']}}" data-event-opts="{{[ [ 'tap',[ [ 'chooseAnswer',['$0'],[ [ ['question.options','',index] ] ] ] ] ] ]}}" wx:for="{{question.options}}" wx:key="index">{{''+item.content+''}}</view>
+        </view>
+        <view class="position-absolute" style="left:100rpx;top:200rpx;" wx:if="{{testMode}}">{{''+question.rightId+''}}</view>
+        <app-banner bind:__l="__l" class="mt-2 app-banner" vueId="8dd740cc-2" wx:if="{{enableDl&&statusBarHeight>22}}"></app-banner>
+    </view>
+</view>

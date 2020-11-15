@@ -1,0 +1,32 @@
+<popup-base bind:__l="__l" bind:close="__e" data-event-opts="{{[ [ '^close',[ ['close'] ] ] ]}}" options="{{popupOptions}}" vueId="adcad5f8-1" vueSlots="{{['default']}}">
+    <view class="column justify-content-center content">
+        <view class="{{['row justify-content-between align-items-center p-1 bg-gray-2',index?'mt-1':'']}}" wx:for="{{$root.l0}}" wx:key="id">
+            <view class="column justify-content-start flex-2 mr-2">
+                <text class="font-16">{{(item[$orig].tag==='新人提现'?'新人提现':item[$orig].description)+''}}<text class="font-red ml-05">{{item[$orig].money}}</text>元</text>
+                <view class="row justify-content-between align-items-center mt-05" wx:if="{{item.g0===-1}}">
+                    <view class="progress bg-gray-4">
+                        <view class="progress-bar" style="{{'width:'+item.g1+'%'+';'}}" wx:if="{{item[$orig].total_answer_true}}"></view>
+                        <view class="progress-bar" style="{{'width:'+item.g2+'%'+';'}}" wx:if="{{item[$orig].ad_click_num}}"></view>
+                        <block wx:else>
+                            <view class="progress-bar" style="{{'width:'+item.g3+'%'+';'}}" wx:if="{{item[$orig].invite_number}}"></view>
+                        </block>
+                    </view>
+                    <view class="font-12 ml-05 progress-value" wx:if="{{item[$orig].total_answer_true}}">{{item[$orig].current_answer_true+'/'+item[$orig].total_answer_true}}</view>
+                    <view class="font-12 ml-05 progress-value" wx:if="{{item[$orig].ad_click_num}}">{{item[$orig].current_ad_click_num+'/'+item[$orig].ad_click_num}}</view>
+                    <block wx:else>
+                        <view class="font-12 ml-05 progress-value" wx:if="{{item[$orig].invite_number}}">{{item[$orig].current_invite_number+'/'+item[$orig].invite_number}}</view>
+                    </block>
+                </view>
+            </view>
+            <view bindtap="__e" class="btn btn-small btn-red mt-05" data-event-opts="{{[ [ 'tap',[ [ 'toWithdraw',['$0'],[ [ ['taskList','id',item[$orig].id] ] ] ] ] ] ]}}" wx:if="{{item[$orig].condition_complete}}">提现</view>
+            <block wx:else>
+                <view class="btn btn-small btn-orange mt-05 position-relative" wx:if="{{item.g4!==-1}}">邀请<button class="btn-transparent" openType="share"></button>
+                </view>
+                <block wx:else>
+                    <view bindtap="__e" class="btn btn-small btn-green mt-05 position-relative" data-event-opts="{{[ [ 'tap',[ ['toAppList'] ] ] ]}}" wx:if="{{item.g5!==-1}}">试玩</view>
+                    <view bindtap="__e" class="btn btn-small btn-red mt-05" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}" wx:else>答题</view>
+                </block>
+            </block>
+        </view>
+    </view>
+</popup-base>

@@ -1,0 +1,49 @@
+<popup-base bind:__l="__l" bind:close="__e" class="popup-custom data-v-06937e6b" data-event-opts="{{[ [ '^close',[ ['toAppList'] ] ] ]}}" options="{{popupData}}" vueId="1a2850a4-1" vueSlots="{{['default']}}">
+    <view class="column justify-content-center align-items-center mt-2 data-v-06937e6b">
+        <block wx:if="{{options.middlePage}}">
+            <view class="w-100 column align-items-center data-v-06937e6b">
+                <image class="icon-img data-v-06937e6b" src="../../static/images/common/stamina/icon.png"></image>
+                <view class="font-20 mt-2 font-bold data-v-06937e6b">无法答题，体力不足</view>
+                <view class="font-16 mt-05 gray-6 data-v-06937e6b">每次答题需消耗<text class="font-red data-v-06937e6b">-1</text>体力</view>
+            </view>
+            <view class="px-2 w-100 mt-3 data-v-06937e6b">
+                <view bindtap="__e" class="btn btn-red w-100 data-v-06937e6b" data-event-opts="{{[ [ 'tap',[ ['toAppList'] ] ] ]}}">免费领取体力</view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="row align-items-end icon ml-05 data-v-06937e6b">
+                <image class="icon-img data-v-06937e6b" src="../../static/images/common/stamina/icon.png"></image>
+                <text class="font-24 font-bold num data-v-06937e6b">{{'+'+customConfig.awardStamina}}</text>
+            </view>
+            <view class="row flex-nowrap justify-content-center align-items-center mt-1 banner-ad data-v-06937e6b" wx:if="{{sh}}">
+                <view class="row justify-content-center align-items-center no-ad data-v-06937e6b">
+                    <view bindtap="__e" class="row justify-content-center align-items-center gray-8 no-ad-btn data-v-06937e6b" data-event-opts="{{[ [ 'tap',[ ['videoAd'] ] ] ]}}">
+                        <view class="iconfont icon-play font-red font-22 mr-1 data-v-06937e6b"></view>
+                        <text class="font-18 font-red data-v-06937e6b">观看视频领取</text>
+                    </view>
+                </view>
+            </view>
+            <block wx:else>
+                <view class="align-center font-14 mt-2 font-red data-v-06937e6b">
+                    <text class="data-v-06937e6b">{{'↓↓点击下图体验 '+bannerInterval+'秒 即可领取↓↓'}}</text>
+                </view>
+                <view class="row flex-nowrap justify-content-center align-items-center banner-ad data-v-06937e6b">
+                    <view class="w-100 ad data-v-06937e6b">
+                        <ad class="data-v-06937e6b" unitId="adunit-c5e21aa6118c5e7a"></ad>
+                    </view>
+                    <view class="row justify-content-center align-items-center no-ad data-v-06937e6b" wx:if="{{showNoAd}}">
+                        <view class="row justify-content-center align-items-center gray-8 no-ad-btn data-v-06937e6b" wx:if="{{showShare}}">
+                            <view class="iconfont icon-share font-red font-22 mr-1 data-v-06937e6b"></view>
+                            <text class="font-18 font-red data-v-06937e6b">分享到群或好友</text>
+                            <button class="btn-transparent data-v-06937e6b" data-popup="showNoStamina" openType="share"></button>
+                        </view>
+                        <view bindtap="__e" class="row justify-content-center align-items-center gray-8 no-ad-btn data-v-06937e6b" data-event-opts="{{[ [ 'tap',[ ['videoAd'] ] ] ]}}" wx:else>
+                            <view class="iconfont icon-play font-red font-22 mr-1 data-v-06937e6b"></view>
+                            <text class="font-18 font-red data-v-06937e6b">观看视频领取</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </block>
+    </view>
+</popup-base>

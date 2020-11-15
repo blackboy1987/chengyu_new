@@ -1,0 +1,27 @@
+<view class="column justify-content-center align-items-center popup data-v-0ef36cdb">
+    <view class="column justify-content-between align-items-center popup-main data-v-0ef36cdb">
+        <view class="position-relative head data-v-0ef36cdb">
+            <image class="head-img data-v-0ef36cdb" src="../../static/images/signin/head_bg.png"></image>
+            <view class="column justify-content-center align-items-center head-content data-v-0ef36cdb">
+                <view class="font-20 font-write font-bold data-v-0ef36cdb">每日签到</view>
+                <view class="row font-14 legend data-v-0ef36cdb">已连续签到<text class="font-bold font-16 highlight data-v-0ef36cdb">{{options.continuous_count}}</text>天</view>
+            </view>
+            <view bindtap="__e" class="iconfont icon-close font-20 p-1 close data-v-0ef36cdb" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}"></view>
+        </view>
+        <view class="row flex-wrap justify-content-start align-items-center content data-v-0ef36cdb">
+            <view class="{{['day-item data-v-0ef36cdb',item.day==7||item.day==14||item.day==21||item.day==28?'super':'']}}" wx:for="{{options.awards}}" wx:for-index="__i0__" wx:key="day">
+                <image class="gift data-v-0ef36cdb" src="{{item.list[0].icon}}"></image>
+                <view class="border data-v-0ef36cdb" wx:if="{{item.is_get}}"></view>
+                <view class="{{['column justify-content-between txt data-v-0ef36cdb',item.day==7?'align-items-start pl-1':'align-items-center']}}">
+                    <text class="font-write font-12 t1 data-v-0ef36cdb">{{'第'+item.day+'天'}}</text>
+                    <text class="font-write font-12 t2 data-v-0ef36cdb">{{item.list[0].name}}</text>
+                </view>
+                <view class="mask data-v-0ef36cdb" wx:if="{{item.is_get}}"></view>
+                <image class="success data-v-0ef36cdb" src="../../static/images/signin/icon_success.png" wx:if="{{item.is_get}}"></image>
+            </view>
+        </view>
+        <view bindtap="__e" class="{{['row justify-content-center align-items-center mt-2 mb-2 btn btn-red data-v-0ef36cdb',options.is_sign?'disable':'animation']}}" data-event-opts="{{[ [ 'tap',[ ['submit'] ] ] ]}}">
+            <text class="data-v-0ef36cdb">{{options.is_sign?'已签到':'立即签到'}}</text>
+        </view>
+    </view>
+</view>

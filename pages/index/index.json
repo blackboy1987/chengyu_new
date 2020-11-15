@@ -1,0 +1,25 @@
+{
+  "usingComponents": {
+    "app-banner": "/components/appBanner/appBanner",
+    "app-list": "/components/appList/appList",
+    "daily-task": "/components/dailyTask/dailyTask",
+    "tabbar": "/components/tabbar/tabbar",
+    "red-envelope": "/components/redEnvelope/redEnvelope",
+    "video-red-envelope": "/components/videoRedEnvelope/videoRedEnvelope",
+    "answer-result": "/components/answerResult/answerResult",
+    "answer-failure": "/components/answerFailure/answerFailure",
+    "stamina": "/components/stamina/stamina",
+    "no-stamina": "/components/noStamina/noStamina",
+    "award": "/components/award/award",
+    "signin": "/components/signin/signin",
+    "ranking": "/components/ranking/ranking",
+    "account": "/components/account/account",
+    "receive-success": "/components/receiveSuccess/receiveSuccess",
+    "money-animation": "/components/moneyAnimation/moneyAnimation",
+    "popup-jump": "/components/popupJump/popupJump",
+    "popup-base": "/components/popupBase/popupBase",
+    "countdown-click": "/components/countdownClick/countdownClick",
+    "custom-navigation": "/components/customNavigation/customNavigation",
+    "uni-load-more": "/components/uni-load-more/uni-load-more"
+  }
+}

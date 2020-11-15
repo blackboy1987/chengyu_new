@@ -1,0 +1,24 @@
+<view class="column justify-content-center align-items-center popup data-v-1210abe0">
+    <view class="column justify-content-between align-items-center popup-main data-v-1210abe0">
+        <image class="bg data-v-1210abe0" src="../../static/images/common/award/bg.png"></image>
+        <image bindtap="__e" class="close data-v-1210abe0" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}" src="../../static/images/common/award/close.png" style="width:44rpx;height:44rpx;"></image>
+        <view class="column align-items-center content data-v-1210abe0">
+            <text class="font-18 mt-140 data-v-1210abe0">恭喜你获得</text>
+            <text class="font-40 font-bold font-red mt-78 data-v-1210abe0">{{options.value+''}}<text class="font-12 font-normal small data-v-1210abe0">元</text>
+            </text>
+            <text class="font-12 font-red mt-05 data-v-1210abe0">可提现</text>
+            <view bindtap="__e" class="row justify-content-center align-items-center mt-5 btn btn-yellow data-v-1210abe0" data-event-opts="{{[ [ 'tap',[ ['submit'] ] ] ]}}" wx:if="{{type=='base'}}">
+                <text class="font-red font-bold data-v-1210abe0">领取红包</text>
+            </view>
+            <block wx:else>
+                <view bindtap="__e" class="row justify-content-center align-items-center mt-4 pr-2 btn btn-yellow data-v-1210abe0" data-event-opts="{{[ [ 'tap',[ [ 'submit',[2] ] ] ] ]}}">
+                    <view class="iconfont icon-play data-v-1210abe0"></view>
+                    <text class="font-red font-bold data-v-1210abe0">超级翻倍</text>
+                    <view class="multiple font-12 data-v-1210abe0">2倍</view>
+                </view>
+                <view bindtap="__e" class="font-12 general mt-1 data-v-1210abe0" data-event-opts="{{[ [ 'tap',[ ['submit'] ] ] ]}}">直接领取</view>
+            </block>
+        </view>
+    </view>
+    <popup-bottom-ad bind:__l="__l" class="data-v-1210abe0" vueId="600b0774-1"></popup-bottom-ad>
+</view>

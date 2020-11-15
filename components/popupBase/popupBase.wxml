@@ -1,0 +1,11 @@
+<view class="column justify-content-center align-items-center popup popup-base data-v-164f936c">
+    <view class="column justify-content-between align-items-center px-2 popup-main data-v-164f936c" style="{{'width:'+options.width+'rpx'+';'}}">
+        <text class="font-18 font-bold mt-2 data-v-164f936c">{{options.title}}</text>
+        <view class="py-2 font-14 w-100 data-v-164f936c">
+            <slot></slot>
+        </view>
+        <view bindtap="__e" class="btn btn-red w-100 mb-2 data-v-164f936c" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}" wx:if="{{options.button!=='custom'}}">{{options.btnText||'好的'}}</view>
+        <view bindtap="__e" class="iconfont icon-close font-20 gray-6 p-1 close data-v-164f936c" data-event-opts="{{[ [ 'tap',[ ['close'] ] ] ]}}"></view>
+    </view>
+    <popup-bottom-ad bind:__l="__l" class="data-v-164f936c" vueId="6eacec74-1"></popup-bottom-ad>
+</view>

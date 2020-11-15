@@ -1,0 +1,10 @@
+<scroll-view class="column scroll-view app-list" scrollIntoView="{{scrollEelId}}" scrollWithAnimation="{{true}}" scrollX="{{true}}" showScrollbar="{{false}}">
+    <view class="row flex-nowrap py-1 content" style="{{'width:'+$root.g0*100+'%'+';'}}">
+        <view bindtap="__e" class="row justify-content-center align-items-center font-14 app-list-item" data-event-opts="{{[ [ 'tap',[ [ 'clickApp',['$0'],[ [ ['listData','id',item.id] ] ] ] ] ] ]}}" id="{{'id-'+index}}" wx:for="{{listData}}" wx:key="id">
+            <view class="w-100 column justify-content-center align-items-center">
+                <image class="thumbnail" src="{{item.image}}"></image>
+                <view class="mt-05 font-12 name">{{item.appname}}</view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

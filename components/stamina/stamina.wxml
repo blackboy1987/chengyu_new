@@ -1,0 +1,8 @@
+<popup-base bind:__l="__l" bind:close="__e" class="popup-custom data-v-3a1bc0f7" data-event-opts="{{[ [ '^close',[ ['close'] ] ] ]}}" options="{{popupData}}" vueId="548d76a2-1" vueSlots="{{['default']}}">
+    <view class="column justify-content-center align-items-center mt-2 mb-4 data-v-3a1bc0f7">
+        <view class="row align-items-end icon data-v-3a1bc0f7">
+            <image class="icon-img data-v-3a1bc0f7" src="../../static/images/common/stamina/icon.png"></image>
+            <text class="font-24 font-bold num data-v-3a1bc0f7">{{options.value?'+'+options.value:'+5'}}</text>
+        </view>
+    </view>
+</popup-base>

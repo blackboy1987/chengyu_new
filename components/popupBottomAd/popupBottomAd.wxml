@@ -1,0 +1,3 @@
+<view class="popup-ad bg-white" style="{{'margin-bottom:'+($root.g0!==-1?'40rpx':'0')+';'}}" wx:if="{{show}}">
+    <ad unitId="{{bannerID}}"></ad>
+</view>

@@ -1,0 +1,50 @@
+<view class="page bg">
+    <button class="btn-transparent" style="z-index:999;" wx:if="{{!sh&&forced}}"></button>
+    <button class="btn-transparent" openType="getUserInfo" withCredentials="true" wx:if="{{!hasUserInfo&&canIUse}}"></button>
+    <view class="row align-items-center ml-15 head-item" wx:if="{{!sh}}">
+        <image src="../../static/images/common/icon_red_envelope.png" style="width:61rpx;height:68rpx;"></image>
+        <view class="row justify-content-between align-items-center head-item-value">
+            <view class="font-14 align-right money moneyChange?'animation':''">{{(money!=null?money+'元':'')+''}}</view>
+            <image class="ml-05" src="../../static/images/common/btn_withdraw.png" style="width:99rpx;height:52rpx;"></image>
+        </view>
+    </view>
+    <view class="row align-items-center ml-15 head-item">
+        <image src="../../static/images/common/stamina.png" style="width:52rpx;height:67rpx;"></image>
+        <view class="row justify-content-between align-items-center head-item-value2">
+            <text class="font-14">{{accountInfo.key}}</text>
+            <image bindtap="__e" class="ml-05" src="../../static/images/common/btn_increase.png" style="width:52rpx;height:52rpx;"></image>
+        </view>
+    </view>
+    <view class="column align-items-center p-1 float-task" wx:if="{{!sh}}">
+        <view class="dot"></view>
+        <text>每</text>
+        <text>日</text>
+        <text>提</text>
+        <text>现</text>
+    </view>
+    <view class="column flex-2 justify-content-around align-items-center home" style="{{'margin-bottom:'+(g1!==-1?'138rpx':'98rpx')+';'}}" wx:if="{{pageName==='home'}}">
+        <view class="column align-items-center">
+            <image bindtap="__e" class="logo" data-event-opts="{{[ [ 'tap',[ ['openTest'] ] ] ]}}" src="{{logoUrl}}" style="width:585rpx;height:134rpx;"></image>
+            <view class="row justify-content-center align-items-center px-2 mt-1 msg" wx:if="{{broadcastData&&!sh}}">
+                <image class="mr-05" src="../../static/images/common/icon_msg.png" style="width:32rpx;height:26rpx;"></image>
+                <text class="font-12">{{broadcastData[broadcastIndex]}}</text>
+            </view>
+        </view>
+        <view class="role">
+            <image class="role-img2" src="../../static/images/home/role2.png" wx:if="{{sh}}"></image>
+            <image class="role-img" src="../../static/images/home/role.png" wx:else></image>
+        </view>
+        <view class="start">
+            <image bindtap="__e" class="start-image" data-event-opts="{{[ [ 'tap',[ [ 'switchPage',['answer',1] ] ] ] ]}}" src="../../static/images/home/btn_start.png"></image>
+        </view>
+        <view bindtap="__e" class="position-absolute float-icon ranking" data-event-opts="{{[ [ 'tap',[ ['openRank'] ] ] ]}}">
+            <image class="w-100 h-100" src="../../static/images/home/icon_ranking.png"></image>
+        </view>
+        <view bindtap="__e" class="position-absolute float-icon invite" data-event-opts="{{[ [ 'tap',[ [ 'jump',['package1','invite'] ] ] ] ]}}">
+            <view bindtap="__e" class="icon-tips font-12 font-write" data-event-opts="{{[ [ 'tap',[ [ 'jump',['package1','invite'] ] ] ] ]}}" wx:if="{{!sh}}">加粉丝</view>
+            <image class="w-100 h-100" src="../../static/images/home/icon_invite.png"></image>
+        </view>
+    </view>
+
+
+</view>

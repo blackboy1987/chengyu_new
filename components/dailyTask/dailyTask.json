@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "popup-base": "/components/popupBase/popupBase",
+        "popup-jump": "/components/popupJump/popupJump",
+        "countdown-click": "/components/countdownClick/countdownClick",
+        "custom-navigation": "/components/customNavigation/customNavigation",
+        "uni-load-more": "/components/uni-load-more/uni-load-more"
+    },
+    "component": true
+}

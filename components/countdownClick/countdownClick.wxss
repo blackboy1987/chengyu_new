@@ -1,0 +1,10 @@
+.component {
+    width: 400rpx;
+    position: absolute;
+    left: 50%;
+    margin-left: -200rpx;
+}
+
+.component .font-close {
+    opacity: .8;
+}

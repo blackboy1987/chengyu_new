@@ -1,0 +1,77 @@
+<view class="h-100 column bg-gray-2 page data-v-30b63fc7">
+    <custom-navigation bind:__l="__l" class="w-100 data-v-30b63fc7" options="{{customOptions}}" vueId="1382aa7c-1"></custom-navigation>
+    <view class="column flex-2 data-v-30b63fc7" style="{{'margin-bottom:'+($root.g0!==-1?'138rpx':'98rpx')+';'}}">
+        <view class="bg-white head data-v-30b63fc7">
+            <image class="img data-v-30b63fc7" src="../../static/images/appList/head.png"></image>
+            <view class="row justify-content-center align-items-center my-1 font-14 data-v-30b63fc7">
+                <image class="mr-05 data-v-30b63fc7" src="../../static/images/common/stamina.png" style="width:36rpx;height:46rpx;"></image>
+                <text class="data-v-30b63fc7">{{'体力：'+(accountInfo.key?accountInfo.key:0)+''}}<text class="data-v-30b63fc7" wx:if="{{testMode}}">{{'-'+question.rightId}}</text>
+                </text>
+                <view bindtap="__e" class="btn btn-small btn-red no-animation no-shadow ml-2 data-v-30b63fc7" data-event-opts="{{[ [ 'tap',[ ['toAnswer'] ] ] ]}}">立即答题</view>
+            </view>
+        </view>
+        <view class="column justify-content-center align-items-center position-relative mt-1 mx-1 title data-v-30b63fc7" wx:if="{{listData&&listData.length}}">
+            <view class="line data-v-30b63fc7"></view>
+            <text class="font font-14 gray-6 data-v-30b63fc7">试玩以下小程序领奖励</text>
+        </view>
+        <scroll-view class="flex-2 scroll-wrap data-v-30b63fc7" scrollY="true" wx:if="{{listData&&listData.length}}">
+            <view class="row flex-wrap align-content-start px-1 list data-v-30b63fc7">
+                <view bindtap="__e" class="{{['column justify-content-start align-items-center mt-1 font-14 list-item data-v-30b63fc7',item.g1===-1?'':'mx-1']}}" data-event-opts="{{[ [ 'tap',[ [ 'clickApp',['$0'],[ [ ['listData','id',item[$orig].id] ] ] ] ] ] ]}}" wx:for="{{$root.l0}}" wx:key="id">
+                    <image class="mt-1 thumbnail data-v-30b63fc7" src="{{item[$orig].image}}"></image>
+                    <view class="gray-8 mt-05 name data-v-30b63fc7">{{item[$orig].appname}}</view>
+                    <view class="gray-8 data-v-30b63fc7">{{'试玩'+item[$orig].duration+'秒'}}</view>
+                    <view class="row justify-content-center align-items-center my-1 data-v-30b63fc7">
+                        <block wx:if="{{item[$orig].reward_type==='key'}}">
+                            <image class="data-v-30b63fc7" src="../../static/images/common/stamina.png" style="width:30rpx;height:33rpx;"></image>
+                            <text class="font-14 ml-05 data-v-30b63fc7">{{'+'+item[$orig].reward_num}}</text>
+                        </block>
+                        <block wx:else>
+                            <block wx:if="{{item[$orig].reward_type==='money'}}">
+                                <image class="data-v-30b63fc7" src="../../static/images/common/icon_red_envelope.png" style="width:30rpx;height:39rpx;"></image>
+                                <text class="font-14 ml-05 data-v-30b63fc7">{{'+'+item[$orig].reward_num+'元'}}</text>
+                            </block>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="flex-2 column justify-content-center align-items-center data-v-30b63fc7" wx:else>
+            <view class="btn btn-red px-2 font-write data-v-30b63fc7">
+                <view class="iconfont icon-play data-v-30b63fc7"></view>
+                <view bindtap="__e" class="font-16 data-v-30b63fc7" data-event-opts="{{[ [ 'tap',[ ['videoAd'] ] ] ]}}">观看视频获取体力</view>
+            </view>
+        </view>
+        <view class="row justify-content-center align-items-center px-2 task data-v-30b63fc7" wx:if="{{task.max&&!sh}}">
+            <view class="column align-items-start mr-2 flex-2 data-v-30b63fc7">
+                <block wx:if="{{task.is_complete}}">
+                    <view class="progress data-v-30b63fc7">
+                        <view class="progress-bar data-v-30b63fc7" style="width:100%;"></view>
+                    </view>
+                    <view class="font-14 font-red mt-05 align-center data-v-30b63fc7">已提现，明日可再提现。</view>
+                </block>
+                <block wx:else>
+                    <view class="progress data-v-30b63fc7">
+                        <view class="progress-bar data-v-30b63fc7" style="{{'width:'+$root.g2+'%'+';'}}"></view>
+                    </view>
+                    <view class="font-14 font-red mt-05 align-center data-v-30b63fc7" wx:if="{{task.current>=task.max}}">已完成试玩，可以提现了</view>
+                    <view class="font-14 gray-8 mt-05 align-center data-v-30b63fc7" wx:else>完成试玩<text class="font-red font-16 data-v-30b63fc7">{{task.current}}</text>个，还差<text class="font-red font-16 data-v-30b63fc7">{{task.max-task.current}}</text>个提现</view>
+                </block>
+            </view>
+            <view bindtap="__e" class="btn btn-green btn-small no-shadow data-v-30b63fc7" data-event-opts="{{[ [ 'tap',[ ['toWithdraw'] ] ] ]}}">去提现</view>
+        </view>
+    </view>
+    <popup-jump bind:__l="__l" bind:close="__e" class="bg-white w-100 data-v-30b63fc7" data-event-opts="{{[ [ '^close',[ [ 'close',['showPopupJump'] ] ] ] ]}}" options="{{selectedData}}" vueId="1382aa7c-2" wx:if="{{showPopupJump}}"></popup-jump>
+    <stamina bind:__l="__l" bind:close="__e" class="data-v-30b63fc7" data-event-opts="{{[ [ '^close',[ [ 'close',['showStamina'] ] ] ] ]}}" options="{{staminaData}}" vueId="1382aa7c-3" wx:if="{{showStamina}}"></stamina>
+    <popup-base bind:__l="__l" bind:close="__e" class="popup-custom data-v-30b63fc7" data-event-opts="{{[ [ '^close',[ [ 'close',['showReopen'] ] ] ] ]}}" options="{{reopenPopupOptions}}" vueId="1382aa7c-4" vueSlots="{{['default']}}" wx:if="{{showReopen}}">
+        <view class="column justify-content-center align-items-center mt-2 data-v-30b63fc7">
+            <view class="w-100 column align-items-center data-v-30b63fc7">
+                <view class="font-50 iconfont icon-jinggao data-v-30b63fc7"></view>
+                <view class="font-20 mt-2 data-v-30b63fc7">试玩<text class="font-red mx-05 data-v-30b63fc7">{{selectedData.duration}}</text>秒以上</view>
+                <view class="font-20 mt-05 data-v-30b63fc7">才能获得体力</view>
+            </view>
+            <view class="px-2 w-100 mt-3 data-v-30b63fc7">
+                <view bindtap="__e" class="btn btn-red w-100 data-v-30b63fc7" data-event-opts="{{[ [ 'tap',[ ['keepOpen'] ] ] ]}}">继续试玩小程序</view>
+            </view>
+        </view>
+    </popup-base>
+</view>

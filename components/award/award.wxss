@@ -1,0 +1,59 @@
+.popup-main.data-v-1210abe0 {
+    width: 555rpx;
+    height: 662rpx;
+    position: relative;
+}
+
+.popup-main .content.data-v-1210abe0 {
+    width: 555rpx;
+    height: 662rpx;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.popup-main .mt-140.data-v-1210abe0 {
+    margin-top: 136rpx;
+}
+
+.popup-main .mt-78.data-v-1210abe0 {
+    margin-top: 50rpx;
+}
+
+.popup-main .btn.data-v-1210abe0 {
+    width: 410rpx;
+}
+
+.popup-main .btn .multiple.data-v-1210abe0 {
+    position: absolute;
+    right: 60rpx;
+    top: 10rpx;
+    padding: 4rpx 8rpx;
+    z-index: 1;
+    background-color: #f52521;
+    color: #fff;
+    border-radius: 16rpx;
+    border-bottom-left-radius: 0;
+}
+
+.popup-main .general.data-v-1210abe0 {
+    color: #fd8670;
+}
+
+.popup .bg.data-v-1210abe0 {
+    width: 555rpx;
+    height: 662rpx;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.popup .close.data-v-1210abe0 {
+    position: absolute;
+    right: 0;
+    top: -50rpx;
+    padding: 20rpx;
+    z-index: 2;
+}
