@@ -62,6 +62,5 @@ const map:{[key:string]:string} = {
 }
 
 export const imageUrl = (key:string) =>{
-    console.log("key",key,map[`${key}`]);
     return imageBaseUrl + map[`${key}`];
 }

@@ -1,14 +1,7 @@
 import * as React from 'react';
-import { View, Text,Image } from 'remax/one';
-import {ScrollView} from 'remax/wechat';
-import redEnvelopeBg from '@/static/images/account/redEnvelopeBg.png';
-import light from '../../static/images/common/redEnvelope/light.png'
-// @ts-ignore
-import classNames from 'classnames';
+import { View, Text } from 'remax/one';
 import './index.css';
 import {useState} from "react";
-import CustomNavigation from "@/components/CustomNavigation";
-import PopupBase from "@/components/PopupBase";
 
 const defaultItem={
         condition_complete:false,

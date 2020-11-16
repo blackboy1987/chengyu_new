@@ -1,12 +1,6 @@
 import * as React from 'react';
 import { View, Text,Image } from 'remax/one';
 import {Button} from 'remax/wechat';
-import bg from '@/static/images/common/redEnvelope/bg.png';
-import btn_hb from '@/static/images/common/redEnvelope/btn_hb.png'
-import light from '@/static/images/common/redEnvelope/light.png';
-import open_share from '@/static/images/common/redEnvelope/open_share.png';
-import open from '@/static/images/common/redEnvelope/open.png';
-import redEnvelopeBg from '@/static/images/account/redEnvelopeBg.png';
 // @ts-ignore
 import classNames from 'classnames';
 import './index.css';

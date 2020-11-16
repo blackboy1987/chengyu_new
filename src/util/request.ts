@@ -1,11 +1,19 @@
 import {Constants} from "./constants";
 import {getStorage} from "./wxUtils";
-
-const request = (url,callback,options={})=>{
-    wx.showLoading({
-        title:"数据加载中",
-        mask:true,
-    });
+interface Options {
+    method?: 'POST'|'GET',
+    data?:{
+        [key:string]:any
+    },
+    showLoading?:boolean;
+}
+const request = (url:string,callback:(data:any)=>void,options:Options={})=>{
+    if(options.showLoading){
+        wx.showLoading({
+            title:"数据加载中",
+            mask:true,
+        });
+    }
 
     if(!options){
         options = {};
@@ -34,8 +42,10 @@ const request = (url,callback,options={})=>{
             url,
         },
         header,
-        success (res) {
-            wx.hideLoading();
+        success (res:any) {
+            if(options.showLoading){
+                wx.hideLoading();
+            }
             const {statusCode} = res;
             if(statusCode>=200&&statusCode<=299){
                 callback(res.data);
@@ -46,7 +56,7 @@ const request = (url,callback,options={})=>{
                 });
             }
         },
-        fail(err){
+        fail(err:any){
             wx.hideLoading();
             console.log(err.errMsg);
             wx.showModal({

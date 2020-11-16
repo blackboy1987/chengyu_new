@@ -7,15 +7,14 @@ import classNames from 'classnames';
 import './index.css';
 import {useState} from "react";
 import AppBanner from "@/components/AppBanner";
-import AppList from "@/components/AppList";
-import {btn_increase, btn_withdraw, icon_red_envelope, light, stamina, task1, task2} from "@/components/ImageComponent";
-import {wxGetSystemInfoSync} from "@/util/wxUtils";
+import {getStorage, go, wxGetSystemInfoSync} from "@/util/wxUtils";
 import {game} from "@/util/httpUtils";
-import {GameInfo} from "@/data";
+import {GameInfo, SiteInfo} from "@/data";
 import AnswerResult from "@/components/AnswerResult";
 import AnswerFailure from "@/components/AnswerFailure";
 import Top from "@/components/Top";
 import {imageUrl} from "@/util/utils";
+import {createRewardedVideoAd} from "@/util/adUtils";
 
 export default () => {
     const [systemInfo,setSystemInfo] = useState<{[key:string]:any}>(wxGetSystemInfoSync);
@@ -31,14 +30,33 @@ export default () => {
         position:-1,
         continuous_count:2,
         continuous_max:10,
-
     });
+    const [rewardedVideoAd,setRewardedVideoAd] = useState(null);
+
     const [success,setSuccess] = useState<boolean | null>(null);
 
     usePageEvent('onLoad',()=>{
         game((data:GameInfo)=>{
             setGameInfo({...data,continuous_count:2,continuous_max:10});
         });
+        if(!rewardedVideoAd){
+            console.log("1111")
+            const siteInfo:SiteInfo = getStorage("siteInfo");
+            if(siteInfo.rewardedVideoAdId){
+                console.log("2222")
+                setRewardedVideoAd(createRewardedVideoAd(siteInfo.rewardedVideoAdId.replace(/[\n\r]/g,''),{
+                    onLoad:function () {
+                        console.log("ok");
+                    },
+                    onError:function (err) {
+                        console.log("err",err);
+                    },
+                    onClose:function (res) {
+                        console.log("res",res);
+                    }
+                }))
+            }
+        }
     });
 
     const select=(text:string)=>{
@@ -53,6 +71,12 @@ export default () => {
 
         }
     };
+
+    const tip = () =>{
+        if(rewardedVideoAd){
+            rewardedVideoAd.show();
+        }
+    }
 
   return (
       <View className="page bg">
@@ -141,11 +165,11 @@ export default () => {
 
                   </View>
                   <View className="row justify-content-end align-items-center pr-4 mb-15 btn-group">
-                      <View className="row px-1 py-05 ml-1 justify-content-center align-items-center btn-group-item">
+                      <View onTap={()=>go("/pages/index/index")} className="row px-1 py-05 ml-1 justify-content-center align-items-center btn-group-item">
                           <View className="iconfont icon-home font-20 mr-05" />
                           <Text className="font-14 ">首页</Text>
                       </View>
-                      <View className="row px-1 py-05 ml-1 justify-content-center align-items-center btn-group-item">
+                      <View onTap={tip} className="row px-1 py-05 ml-1 justify-content-center align-items-center btn-group-item">
                           <View className="iconfont icon-play font-20 mr-05" />
                           <Text className="font-14 ">提示</Text>
                       </View>

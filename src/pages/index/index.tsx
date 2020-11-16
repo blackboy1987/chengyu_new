@@ -2,11 +2,6 @@ import * as React from 'react';
 import { View, Text, Image, } from 'remax/one';
 import './index.css';
 import {useState} from "react";
-import icon_ranking from '@/static/images/home/icon_ranking.png';
-import btn_start from '@/static/images/home/btn_start.png';
-import role2 from '@/static/images/home/role2.png';
-import role from '@/static/images/home/role.png'
-import icon_msg from '@/static/images/common/icon_msg.png';
 import {go} from "@/util/wxUtils";
 
 import Top from "@/components/Top";
