@@ -15,6 +15,7 @@ import CustomNavigation from "@/components/CustomNavigation";
 import PopupBase from "@/components/PopupBase";
 import PopupBottomAd from "@/components/PopupBottomAd";
 import CountdownClick from "@/components/CountdownClick";
+import {imageUrl} from "@/util/utils";
 
 const options = {
     isDeductMoney:true,
@@ -36,7 +37,7 @@ const AnswerResult= () => {
             {
                 options.receiveType === 'share' ? (
                     <View className="popup-main data-v-389d38fc">
-                        <Image className="bg data-v-389d38fc" src={bg} />
+                        <Image className="bg data-v-389d38fc" src={imageUrl('bg')} />
                         <View className="column justify-content-between align-items-center content data-v-389d38fc">
                             <View className="column font-write align-center data-v-389d38fc">
                                 <Text className="font-22 mt-5 t2 data-v-389d38fc">现金红包 x1</Text>
@@ -47,7 +48,7 @@ const AnswerResult= () => {
                                     <>
                                         <Image
                                             className="mt-1 open2 data-v-389d38fc"
-                                            src={btn_hb}
+                                            src={imageUrl('btn_hb')}
                                             style={{
                                                 width:410,
                                                 height:104
@@ -60,7 +61,7 @@ const AnswerResult= () => {
                                         <View className="mt-1 share data-v-389d38fc">
                                             <Image
                                                 className="data-v-389d38fc"
-                                                src={open_share}
+                                                src={imageUrl('open_share')}
                                                 style={{
                                                     width:182,
                                                     height:182
@@ -81,7 +82,7 @@ const AnswerResult= () => {
                             !sh ? (
                                 <Image
                                     className="light data-v-389d38fc"
-                                    src={light}
+                                    src={imageUrl('light')}
                                     style={{
                                         width:350,
                                         height:350
@@ -95,7 +96,7 @@ const AnswerResult= () => {
             {
                 options.receiveType==='video' ? (
                     <View className="popup-main data-v-389d38fc">
-                        <Image className="bg data-v-389d38fc" src={bg} />
+                        <Image className="bg data-v-389d38fc" src={imageUrl('bg')} />
                         <View className="column justify-content-between align-items-center content data-v-389d38fc">
                             <View className="column font-write align-center data-v-389d38fc">
                                 <Text className="font-22 mt-5 t2 data-v-389d38fc">现金红包 x1</Text>
@@ -104,7 +105,7 @@ const AnswerResult= () => {
                             {
                                 sh ? (
                                     <>
-                                        <Image className="mt-1 open2 data-v-389d38fc" src={btn_hb} style={{width:410,height:104}} />
+                                        <Image className="mt-1 open2 data-v-389d38fc" src={imageUrl('btn_hb')} style={{width:410,height:104}} />
                                         <Text className="font-12 font-write mb-4 t3 hb-tip data-v-389d38fc">观看完整视频领取红包</Text>
                                     </>
                                 ) : (
@@ -116,7 +117,7 @@ const AnswerResult= () => {
                                                 'data-v-389d38fc',
                                                 opening?'spin':''
                                             )}
-                                            src={open}
+                                            src={imageUrl('open')}
                                         />
                                         <Text className="font-12 font-write mb-2 t3 hb-tip data-v-389d38fc">观看完整视频领取红包</Text>
                                     </>
@@ -128,7 +129,7 @@ const AnswerResult= () => {
 
                         </View>
                         {
-                            !sh ? (<Image className="light data-v-389d38fc" src={light} style={{width:350,height:350}} />) : null
+                            !sh ? (<Image className="light data-v-389d38fc" src={imageUrl('light')} style={{width:350,height:350}} />) : null
                         }
 
                     </View>
@@ -143,8 +144,8 @@ const AnswerResult= () => {
                         </View>
                         <View
                             className="column justify-content-center align-items-center banner-content data-v-389d38fc">
-                            <Image className="my-2 red-envelope data-v-389d38fc" src={redEnvelopeBg} style={{width:150,height:188}} />
-                            <Image className="light data-v-389d38fc" src={light} />
+                            <Image className="my-2 red-envelope data-v-389d38fc" src={imageUrl('redEnvelopeBg')} style={{width:150,height:188}} />
+                            <Image className="light data-v-389d38fc" src={imageUrl('light')} />
                         </View>
                         <View className="align-center font-write font-18 t2 zoom data-v-389d38fc">
                             {
@@ -221,8 +222,8 @@ const AnswerResult= () => {
                             <Text className="font-14 font-write t3 hb-tip data-v-389d38fc">可提现</Text>
                         </View>
                         <View className="column justify-content-center align-items-center banner-content data-v-389d38fc">
-                            <Image className="my-2 red-envelope data-v-389d38fc" src={redEnvelopeBg} style={{width:150,height:188}} />
-                            <Image className="light data-v-389d38fc" src={{light}} />
+                            <Image className="my-2 red-envelope data-v-389d38fc" src={imageUrl('redEnvelopeBg')} style={{width:150,height:188}} />
+                            <Image className="light data-v-389d38fc" src={imageUrl('light')} />
                         </View>
                         <View className="align-center font-write font-18 mt-2 t2 zoom data-v-389d38fc">
                             {

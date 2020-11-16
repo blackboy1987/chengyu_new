@@ -9,6 +9,7 @@ import './index.css';
 import {useState} from "react";
 import CustomNavigation from "@/components/CustomNavigation";
 import PopupBase from "@/components/PopupBase";
+import {imageUrl} from "@/util/utils";
 
 const defaultItem={
         condition_complete:false,
@@ -241,7 +242,7 @@ const Account= () => {
             <PopupBase className="popup-success data-v-acc4b046">
                 <View className="column justify-content-center align-items-center my-4 data-v-acc4b046">
                     <View className="column align-items-end position-relative red-envelope data-v-acc4b046">
-                        <Image className="red-envelope-bg data-v-acc4b046" src={redEnvelopeBg} />
+                        <Image className="red-envelope-bg data-v-acc4b046" src={imageUrl('redEnvelopeBg')} />
                         {
                             defaultItem.money ? (
                                 <View
@@ -253,7 +254,7 @@ const Account= () => {
                 </View>
                 <Image
                     className="light data-v-acc4b046"
-                    src={light}
+                    src={imageUrl('light')}
                     style={{
                         width:350,
                         height:350

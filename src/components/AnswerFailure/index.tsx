@@ -6,6 +6,7 @@ import PopupBottomAd from "@/components/PopupBottomAd";
 import {redEnvelope_bg, redEnvelope_failure} from "@/components/ImageComponent";
 import {siteInfo} from "@/util/httpUtils";
 import {SiteInfo} from "@/data";
+import {imageUrl} from "@/util/utils";
 
 interface AnswerFailureProps {
     onClose:()=>void;
@@ -36,7 +37,7 @@ class AnswerFailure extends React.Component<AnswerFailureProps, AnswerFailureSta
         return (
             <View className="column justify-content-center align-items-center popup">
                 <View className="popup-main">
-                    <Image className="bg" src={redEnvelope_bg} />
+                    <Image className="bg" src={imageUrl('redEnvelope_bg')} />
                     <View className="column justify-content-between align-items-center content">
                         <View className="column font-write align-center">
                             <Text className="font-22 mt-5 t2">答题失败</Text>
@@ -53,7 +54,7 @@ class AnswerFailure extends React.Component<AnswerFailureProps, AnswerFailureSta
                         </View>
                         <View className="mt-1 failure">
                             <Image
-                                src={redEnvelope_failure}
+                                src={imageUrl('redEnvelope_failure')}
                                 style={{
                                     width:166,
                                     height:166

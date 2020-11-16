@@ -15,6 +15,7 @@ import {GameInfo} from "@/data";
 import AnswerResult from "@/components/AnswerResult";
 import AnswerFailure from "@/components/AnswerFailure";
 import Top from "@/components/Top";
+import {imageUrl} from "@/util/utils";
 
 export default () => {
     const [systemInfo,setSystemInfo] = useState<{[key:string]:any}>(wxGetSystemInfoSync);
@@ -85,7 +86,7 @@ export default () => {
                               {
                                   gameInfo.continuous_count===gameInfo.continuous_max ? (
                                       <Image
-                                          src={task2}
+                                          src={imageUrl('task2')}
                                           style={{
                                               width:81,
                                               height:98
@@ -93,7 +94,7 @@ export default () => {
                                       />
                                   ) : (
                                       <Image
-                                          src={task1}
+                                          src={imageUrl('task1')}
                                           style={{
                                               width:81,
                                               height:98
@@ -105,7 +106,7 @@ export default () => {
                           </View>
                           <Image
                               className="light"
-                              src={light}
+                              src={imageUrl('light')}
                               style={{
                                   width:159,
                                   height:152

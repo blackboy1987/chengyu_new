@@ -11,6 +11,7 @@ import {btn_increase, btn_withdraw, icon_red_envelope, stamina} from "@/componen
 import {wxGetSystemInfoSync, wxLogin} from "@/util/wxUtils";
 import {usePageEvent} from "remax/macro";
 import {UserInfo} from "@/data";
+import {imageUrl} from "@/util/utils";
 
 
 const Top= () => {
@@ -46,7 +47,7 @@ const Top= () => {
                     !sh ? (
                         <View className="row align-items-center ml-15 head-item">
                             <Image
-                                src={icon_red_envelope}
+                                src={imageUrl('icon_red_envelope')}
                                 style={{
                                     width:61,
                                     height:68
@@ -62,7 +63,7 @@ const Top= () => {
                                     )}>{userInfo.money ? userInfo.money + '元' : ''}</View>
                                 <Image
                                     className="ml-05"
-                                    src={btn_withdraw}
+                                    src={imageUrl('btn_withdraw')}
                                     style={{
                                         width:99,
                                         height:52
@@ -74,7 +75,7 @@ const Top= () => {
                 }
                 <View className="row align-items-center ml-15 head-item">
                     <Image
-                        src={stamina}
+                        src={imageUrl('stamina')}
                         style={{
                             width:52,
                             height:67
@@ -84,7 +85,7 @@ const Top= () => {
                         <Text className="font-14">{userInfo.point}</Text>
                         <Image
                             className="ml-05"
-                            src={btn_increase}
+                            src={imageUrl('btn_increase')}
                             style={{
                                 width:52,
                                 height:52

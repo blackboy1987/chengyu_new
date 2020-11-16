@@ -7,6 +7,7 @@ import './index.css';
 import {useState} from "react";
 import CustomNavigation from "@/components/CustomNavigation";
 import {head, icon_red_envelope, stamina} from "@/components/ImageComponent";
+import {imageUrl} from "@/util/utils";
 const accountInfo= {
     key:3,
 }
@@ -29,11 +30,11 @@ const AppList= () => {
             <CustomNavigation />
             <View className="column flex-2 data-v-30b63fc7" style={{marginBottom: g0!==-1 ? 138:98}}>
                 <View className="bg-white head data-v-30b63fc7">
-                    <Image className="img data-v-30b63fc7" src={head} />
+                    <Image className="img data-v-30b63fc7" src={imageUrl('head')} />
                     <View className="row justify-content-center align-items-center my-1 font-14 data-v-30b63fc7">
                         <Image
                             className="mr-05 data-v-30b63fc7"
-                            src={stamina}
+                            src={imageUrl('stamina')}
                             style={{
                                 width:36,
                                 height:46
@@ -82,7 +83,7 @@ const AppList= () => {
                                                         <>
                                                             <Image
                                                                 className="data-v-30b63fc7"
-                                                                src={stamina}
+                                                                src={imageUrl('stamina')}
                                                                 style={{
                                                                     width:30,
                                                                     height:33
@@ -97,7 +98,7 @@ const AppList= () => {
                                                         <>
                                                             <Image
                                                                 className="data-v-30b63fc7"
-                                                                src={icon_red_envelope}
+                                                                src={imageUrl('icon_red_envelope')}
                                                                 style={{
                                                                     width:30,
                                                                     height:39
