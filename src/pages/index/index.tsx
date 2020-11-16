@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { View, Text, Image, } from 'remax/one';
-import {Button} from 'remax/wechat';
 // @ts-ignore
 import classNames from 'classnames';
 import './index.css';
@@ -15,98 +14,23 @@ import btn_start from '@/static/images/home/btn_start.png';
 import role2 from '@/static/images/home/role2.png';
 import role from '@/static/images/home/role.png'
 import icon_msg from '@/static/images/common/icon_msg.png';
+import {go, wxGetSystemInfoSync, wxLogin} from "@/util/wxUtils";
+import {UserInfo} from "@/data";
+import Top from "@/components/Top";
 const logoUrl = 'https://bootx-chengyu.oss-cn-hangzhou.aliyuncs.com/chengyu/static/images/logo/slogan.png';
 
 export default () => {
-  const [systemInfo,setSystemInfo] = useState<{[key:string]:any}>(wx.getSystemInfoSync());
   const [sh,setSh] = useState<boolean>(false);
-  const [forced,setForced] = useState<boolean>(false);
-  const [hasUserInfo,setHasUserInfo] = useState<boolean>(false);
-  const [canIUse,setCanIUse] = useState<boolean>(false);
-  const [money,setMoney] = useState<number>(3.33);
-  const [moneyChange,setMoneyChange] = useState<boolean>(true);
-  const [accountInfo,setAccountInfo] = useState({
-    key:3,
-  });
+
   const [broadcastData,setBroadcastData] = useState<string[]>(['*******获取奖励红包123.33 元'])
   const [g1,setG1] = useState<number>(-1);
+    const toPlay=()=>{
+        go('/pages/answer/index');
+    };
+
   return (
       <View className="page bg">
-        {
-          !sh&&forced ? (<Button className="btn-transparent" style={{zIndex:999}} />) : null
-        }
-        {
-          !hasUserInfo&&canIUse? (<Button className="btn-transparent" openType='getUserInfo' />) : null
-        }
-        <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              marginTop:systemInfo.statusBarHeight*systemInfo.devicePixelRatio
-            }}
-        >
-          {
-            !sh ? (
-                <View className="row align-items-center ml-15 head-item">
-                  <Image
-                      src={icon_red_envelope}
-                      style={{
-                        width:61,
-                        height:68
-                      }}
-                  />
-                  <View className="row justify-content-between align-items-center head-item-value">
-                    <View
-                        className={classNames(
-                            'font-14',
-                            'align-right',
-                            'money',
-                            moneyChange ? 'animation':'',
-                        )}>{money != null ? money + '元' : ''}</View>
-                    <Image
-                        className="ml-05"
-                        src={btn_withdraw}
-                        style={{
-                          width:99,
-                          height:52
-                        }}
-                    />
-                  </View>
-                </View>
-            ) : null
-          }
-          <View className="row align-items-center ml-15 head-item">
-            <Image
-                src={stamina}
-                style={{
-                  width:52,
-                  height:67
-                }}
-            />
-            <View className="row justify-content-between align-items-center head-item-value2">
-              <Text className="font-14">{accountInfo.key}</Text>
-              <Image
-                  className="ml-05"
-                  src={btn_increase}
-                  style={{
-                    width:52,
-                    height:52
-                  }}
-              />
-            </View>
-          </View>
-        </View>
-        {
-          !sh ? (
-              <View className="column align-items-center p-1 float-task">
-                <View className="dot" />
-                <Text>每</Text>
-                <Text>日</Text>
-                <Text>提</Text>
-                <Text>现</Text>
-              </View>
-          ) : null
-        }
+        <Top />
 
         <View className="column flex-2 justify-content-around align-items-center home" style={{marginBottom:g1===-1 ? 138 : 98}}>
           <View className="column align-items-center">
@@ -141,7 +65,7 @@ export default () => {
               ) : (<Image className="role-img" src={role} />)
             }
           </View>
-          <View className="start">
+          <View className="start" onTap={toPlay}>
             <Image className="start-image" src={btn_start} />
           </View>
           <View className="position-absolute float-icon ranking">

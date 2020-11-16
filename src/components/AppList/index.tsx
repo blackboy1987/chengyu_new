@@ -6,9 +6,7 @@ import classNames from 'classnames';
 import './index.css';
 import {useState} from "react";
 import CustomNavigation from "@/components/CustomNavigation";
-import head from '../../static/Images/appList/head.png';
-import stamina from '../../static/Images/common/stamina.png';
-import icon_red_envelope from '../../static/Images/common/icon_red_envelope.png';
+import {head, icon_red_envelope, stamina} from "@/components/ImageComponent";
 const accountInfo= {
     key:3,
 }
