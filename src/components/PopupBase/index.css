@@ -1,0 +1,12 @@
+.popup-base .popup-main.data-v-164f936c {
+    width: 620px;
+    position: relative;
+    border-radius: 40px;
+    background-color: #fff;
+}
+
+.popup-base .popup-main .close.data-v-164f936c {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}

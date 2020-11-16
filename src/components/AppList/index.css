@@ -1,0 +1,109 @@
+.page .head.data-v-30b63fc7 {
+    width: 100%;
+}
+
+.page .head .img.data-v-30b63fc7 {
+    width: 100%;
+    height: 188rpx;
+}
+
+.page .title.data-v-30b63fc7 {
+    height: 60rpx;
+}
+
+.page .title .line.data-v-30b63fc7 {
+    width: 100%;
+    height: 2rpx;
+    background-color: #b1b1b1;
+    position: absolute;
+    left: 0;
+    top: 30rpx;
+}
+
+.page .title .font.data-v-30b63fc7 {
+    z-index: 2;
+    background-color: #f5f5f5;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+}
+
+.page .list.data-v-30b63fc7 {
+    height: 100%;
+}
+
+.page .list-item.data-v-30b63fc7 {
+    width: 223rpx;
+    height: 300rpx;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 20rpx;
+    box-shadow: 0 0 6rpx 6rpx rgba(0,0,0,.02);
+    position: relative;
+    overflow: hidden;
+}
+
+.page .list-item.data-v-30b63fc7:after {
+    width: 140%;
+    height: 45px;
+    position: absolute;
+    left: -20%;
+    top: 0;
+    z-index: 1;
+    content: "";
+    border-radius: 0 0 50% 50%;
+    background: #eee;
+}
+
+.page .list-item .thumbnail.data-v-30b63fc7 {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
+    border: 2px solid #fff;
+    z-index: 2;
+}
+
+.page .list-item .name.data-v-30b63fc7 {
+    height: 42rpx;
+    overflow: hidden;
+}
+
+.page .scroll-wrap.data-v-30b63fc7 {
+    height: 500rpx;
+    margin-bottom: 20rpx;
+}
+
+.page .task.data-v-30b63fc7 {
+    height: 160rpx;
+    background-color: #ffefd6;
+}
+
+.page .task .btn.data-v-30b63fc7 {
+    width: 200rpx;
+}
+
+.page .task .progress.data-v-30b63fc7 {
+    width: 100%;
+    height: 20rpx;
+    background-color: #fff;
+    position: relative;
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+
+.page .task .progress-bar.data-v-30b63fc7 {
+    height: 100%;
+    background-color: #f72526;
+    transition: width 1s linear 0s;
+}
+
+.page .task .progress-value.data-v-30b63fc7 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.page .task .highlight.data-v-30b63fc7 {
+    color: #00d400;
+}

@@ -13,6 +13,9 @@ import light from '@/static/images/answer/light.png';
 import task1 from '@/static/images/answer/task1.png';
 import task2 from '@/static/images/answer/task2.png';
 import AppBanner from "@/components/AppBanner";
+import AnswerFailure from "@/components/AnswerFailure";
+import AnswerResult from "@/components/AnswerResult";
+import AppList from "@/components/AppList";
 
 export default () => {
   const [systemInfo,setSystemInfo] = useState<{[key:string]:any}>(wx.getSystemInfoSync());
@@ -239,7 +242,6 @@ export default () => {
                           >{item}</View>
                       ))
                   }
-
               </View>
               {
                   testMode ? (
@@ -254,6 +256,7 @@ export default () => {
               }
             <AppBanner />
           </View>
+          <AppList />
       </View>
   );
 };
