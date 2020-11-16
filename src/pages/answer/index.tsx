@@ -60,7 +60,7 @@ export default () => {
     });
 
     const select=(text:string)=>{
-        const {position,idiom,level} = gameInfo;
+        const {position,idiom} = gameInfo;
         if(text===answer){
             return;
         }

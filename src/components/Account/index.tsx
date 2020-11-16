@@ -9,11 +9,6 @@ import CustomNavigation from "@/components/CustomNavigation";
 import PopupBase from "@/components/PopupBase";
 import {imageUrl} from "@/util/utils";
 
-const defaultItem={
-        condition_complete:false,
-        tag:'每日提现',
-        fail_result:'条件未达到，连续答对3题目',
-    };
 
 const Account= () => {
     const [systemInfo,setSystemInfo] = useState<{[key:string]:any}>(wx.getSystemInfoSync());
