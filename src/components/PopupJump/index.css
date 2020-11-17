@@ -1,0 +1,17 @@
+.popup-jump .popup-main.data-v-6fb396e0 {
+    width: 680px;
+    position: relative;
+    border-radius: 40px;
+    background-color: #fff;
+}
+
+.popup-jump .popup-main .swiper.data-v-6fb396e0 {
+    width: 600px;
+    height: 900px;
+}
+
+.popup-jump .popup-main .close.data-v-6fb396e0 {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {View} from 'remax/one';
 import './index.css';
 import {useState} from "react";
 import {SiteInfo} from "@/data";
@@ -15,9 +16,9 @@ const PopupBottomAd:React.FC<PopupBottomAdProps>= ({show}) => {
         <>
             {
                 show&&siteInfo.bannerAdId ? (
-                    <view className="popup-ad bg-white" style={{marginBottom:g0!==-1 ? 40 : 0}}>
+                    <View className="popup-ad bg-white" style={{marginBottom:g0!==-1 ? 40 : 0}}>
                         <ad unitId={siteInfo.bannerAdId} />
-                    </view>
+                    </View>
                 ) : null
             }
         </>

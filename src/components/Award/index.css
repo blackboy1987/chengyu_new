@@ -1,0 +1,59 @@
+.popup-main.data-v-1210abe0 {
+    width: 555px;
+    height: 662px;
+    position: relative;
+}
+
+.popup-main .content.data-v-1210abe0 {
+    width: 555px;
+    height: 662px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.popup-main .mt-140.data-v-1210abe0 {
+    margin-top: 136px;
+}
+
+.popup-main .mt-78.data-v-1210abe0 {
+    margin-top: 50px;
+}
+
+.popup-main .btn.data-v-1210abe0 {
+    width: 410px;
+}
+
+.popup-main .btn .multiple.data-v-1210abe0 {
+    position: absolute;
+    right: 60px;
+    top: 10px;
+    padding: 4px 8px;
+    z-index: 1;
+    background-color: #f52521;
+    color: #fff;
+    border-radius: 16px;
+    border-bottom-left-radius: 0;
+}
+
+.popup-main .general.data-v-1210abe0 {
+    color: #fd8670;
+}
+
+.popup .bg.data-v-1210abe0 {
+    width: 555px;
+    height: 662px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.popup .close.data-v-1210abe0 {
+    position: absolute;
+    right: 0;
+    top: -50px;
+    padding: 20px;
+    z-index: 2;
+}

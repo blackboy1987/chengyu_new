@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { View, Text, } from 'remax/one';
+// @ts-ignore
 import classNames from 'classnames';
 import './index.css';
 import {useState} from "react";
 import PopupBottomAd from "@/components/PopupBottomAd";
 
 interface PopupBaseProps{
-    className:string;
+    className?:string;
     close:()=>void;
 }
 
@@ -35,7 +36,7 @@ const PopupBase:React.FC<PopupBaseProps>= ({close,className,children}) => {
                 }
                 <View className="iconfont icon-close font-20 gray-6 p-1 close data-v-164f936c" onTap={close} />
             </View>
-            <PopupBottomAd />
+            <PopupBottomAd show />
         </View>
 
     );

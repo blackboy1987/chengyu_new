@@ -25,7 +25,7 @@ const NoStamina:React.FC<NoStaminaProps>= ({close}) => {
     const [options,setOptions] = useState<{[key:string]:any}>({
         middlePage:true,
     });
-    const [siteInfo,setSiteInfo] = useState<SiteInfo>(getStorage('siteInfo'));
+    const siteInfo = getStorage('siteInfo');
     console.log(siteInfo,'siteInfo');
     return (
         <PopupBase className='popup-custom' close={close}>

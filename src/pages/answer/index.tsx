@@ -83,7 +83,7 @@ export default () => {
 
     const tip = () =>{
         if(rewardedVideoAd){
-            rewardedVideoAd.show();
+            rewardedVideoAd.show()
         }
     }
 

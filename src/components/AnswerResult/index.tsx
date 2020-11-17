@@ -148,7 +148,14 @@ const AnswerResult:React.FC<AnswerResultProps>= ({onClose,onSuccess}) => {
                             {
                                 sh ? (
                                     <>
-                                        <Image className="mt-1 open2 data-v-389d38fc" src={imageUrl('btn_hb')} style={{width:410,height:104}} />
+                                        <Image
+                                            className="mt-1 open2 data-v-389d38fc"
+                                            src={imageUrl('btn_hb')}
+                                            style={{
+                                                width:410,
+                                                height:104
+                                            }}
+                                        />
                                         <Text className="font-12 font-write mb-4 t3 hb-tip data-v-389d38fc">观看完整视频领取红包</Text>
                                     </>
                                 ) : (
@@ -171,7 +178,14 @@ const AnswerResult:React.FC<AnswerResultProps>= ({onClose,onSuccess}) => {
                             }
                         </View>
                         {
-                            !sh ? (<Image className="light data-v-389d38fc" src={imageUrl('light')} style={{width:350,height:350}} />) : null
+                            !sh ? (<Image
+                                className="light data-v-389d38fc"
+                                src={imageUrl('light')}
+                                style={{
+                                    width:350,
+                                    height:350
+                                }}
+                            />) : null
                         }
 
                     </View>
@@ -186,7 +200,14 @@ const AnswerResult:React.FC<AnswerResultProps>= ({onClose,onSuccess}) => {
                         </View>
                         <View
                             className="column justify-content-center align-items-center banner-content data-v-389d38fc">
-                            <Image className="my-2 red-envelope data-v-389d38fc" src={imageUrl('redEnvelopeBg')} style={{width:150,height:188}} />
+                            <Image
+                                className="my-2 red-envelope data-v-389d38fc"
+                                src={imageUrl('redEnvelopeBg')}
+                                style={{
+                                    width:150,
+                                    height:188
+                                }}
+                            />
                             <Image className="light data-v-389d38fc" src={imageUrl('light')} />
                         </View>
                         <View className="align-center font-write font-18 t2 zoom data-v-389d38fc">

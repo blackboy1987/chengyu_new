@@ -1,0 +1,74 @@
+.popup-main.data-v-69815380 {
+    width: 580px;
+    height: 790px;
+    position: relative;
+}
+
+.popup-main .bg.data-v-69815380,.popup-main .content.data-v-69815380 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.popup-main .bg.data-v-69815380 {
+    z-index: 1;
+}
+
+.popup-main .light.data-v-69815380 {
+    position: absolute;
+    right: 80px;
+    top: 380px;
+    padding: 20px;
+    z-index: 2;
+    animation: rotate 15s linear infinite;
+}
+
+.popup-main .content.data-v-69815380 {
+    z-index: 3;
+}
+
+.popup-main .open.data-v-69815380 {
+    width: 182px;
+    height: 182px;
+    margin-top: 200px;
+    perspective: 800px;
+    perspective-origin: 50%;
+}
+
+.popup-main .open-img.data-v-69815380 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    z-index: 2;
+}
+
+.popup-main .open .spin.data-v-69815380 {
+    animation: spin 1s linear infinite;
+}
+
+.popup-main .t1.data-v-69815380 {
+    text-shadow: 6px 6px 0 #c01504;
+}
+
+.popup-main .t2.data-v-69815380 {
+    color: #fff2b8;
+}
+
+.popup-main .t3.data-v-69815380 {
+    color: #ffedc7;
+}
+
+.popup-main .highlight.data-v-69815380 {
+    color: #ffed21;
+}
+
+.popup-main .close.data-v-69815380 {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 20px;
+    color: #ac000a;
+}

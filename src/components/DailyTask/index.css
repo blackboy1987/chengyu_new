@@ -1,0 +1,17 @@
+.content {
+    min-height: 300px;
+}
+
+.content .progress {
+    width: 260px;
+    height: 26px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.content .progress-bar {
+    height: 100%;
+    background-color: #51b145;
+    transition: width 1s linear 0s;
+}

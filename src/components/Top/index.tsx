@@ -1,13 +1,10 @@
 import * as React from 'react';
 import { View, Text,Image } from 'remax/one';
 import {Button} from 'remax/wechat';
-
 // @ts-ignore
 import classNames from 'classnames';
 import './index.css';
 import {useState} from "react";
-
-import {btn_increase, btn_withdraw, icon_red_envelope, stamina} from "@/components/ImageComponent";
 import {go, wxGetSystemInfoSync, wxLogin} from "@/util/wxUtils";
 import {usePageEvent} from "remax/macro";
 import {UserInfo} from "@/data";

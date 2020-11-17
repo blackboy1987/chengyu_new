@@ -1,0 +1,43 @@
+.popup-main.data-v-56eb47b6 {
+    width: 680px;
+    min-height: 1070px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.popup-main .rank-item.data-v-56eb47b6 {
+    background-color: #fef5f0;
+    border-radius: 10px;
+}
+
+.popup-main .rank-item.me.data-v-56eb47b6 {
+    background-color: #ffd6ca;
+}
+
+.popup-main .rank-icon.data-v-56eb47b6 {
+    width: 43px;
+    height: 44px;
+}
+
+.popup-main .rank .number.data-v-56eb47b6 {
+    width: 50px;
+    text-align: center;
+}
+
+.popup-main .rank .name.data-v-56eb47b6 {
+    max-width: 220px;
+    overflow: hidden;
+}
+
+.popup-main .rank .avatar.data-v-56eb47b6 {
+    width: 72px;
+    height: 72px;
+    border-radius: 100%;
+}
+
+.popup-main .close.data-v-56eb47b6 {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
