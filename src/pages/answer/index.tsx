@@ -18,6 +18,15 @@ import {createRewardedVideoAd} from "@/util/adUtils";
 import ReceiveSuccess from "@/components/ReceiveSuccess";
 import NoStamina from "@/components/NoStamina";
 
+let gameInfo1:GameInfo = {
+    idiom:[],
+    answers:[],
+    position:-1,
+    level:0,
+    continuous_count:0,
+    continuous_max:0,
+}
+
 export default () => {
     const [systemInfo,setSystemInfo] = useState<{[key:string]:any}>(wxGetSystemInfoSync);
     const [sh,setSh] = useState<boolean>(false);
@@ -43,29 +52,37 @@ export default () => {
 
     usePageEvent('onLoad',()=>{
         game((data:GameInfo)=>{
+            console.log(1);
+            gameInfo1 = {...data,continuous_count:2,continuous_max:10};
             setGameInfo({...data,continuous_count:2,continuous_max:10});
-            if(!rewardedVideoAd){
-                const siteInfo:SiteInfo = getStorage("siteInfo");
-                if(siteInfo.rewardedVideoAdId){
-                    setRewardedVideoAd(createRewardedVideoAd(siteInfo.rewardedVideoAdId.replace(/[\n\r]/g,''),{
-                        onLoad:function () {
-                            console.log("ok");
-                        },
-                        onError:function (err) {
-                            console.log("err",err);
-                        },
-                        onClose:function (res) {
-                            if(res.isEnded){
-                                console.log(data.position,data.idiom,data.idiom[data.position]);
-                                setAnswer(data.idiom[data.position]);
-                            }
-                            console.log("res",res);
-                        }
-                    }))
-                }
-            }
         });
+        createRewardedVideo();
+
     });
+
+    const createRewardedVideo=()=>{
+        if(!rewardedVideoAd){
+            const siteInfo:SiteInfo = getStorage("siteInfo");
+            if(siteInfo.rewardedVideoAdId){
+                console.log(2);
+                setRewardedVideoAd(createRewardedVideoAd(siteInfo.rewardedVideoAdId.replace(/[\n\r]/g,''),{
+                    onLoad:function () {
+                        console.log("ok");
+                    },
+                    onError:function (err) {
+                        console.log("err",err);
+                    },
+                    onClose:function (res) {
+                        console.info(gameInfo1);
+                        if(res.isEnded){
+                            setAnswer(gameInfo1.idiom[gameInfo1.position]);
+                        }
+                        console.log("res",res);
+                    }
+                }))
+            }
+        }
+    }
 
     const select=(text:string)=>{
         check((data)=>{
@@ -85,6 +102,12 @@ export default () => {
         setAnswer(text);
         if(idiom[position]===text){
             // 回答正确
+            discount({
+                memo:'答题错误',
+                level:gameInfo.level,
+            },(data)=>{
+                console.log("data",data);
+            }),
             setSuccess(0);
             setShowAnswerFailure(false);
             setShowReceiveSuccess(false);

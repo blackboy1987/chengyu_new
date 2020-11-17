@@ -26,7 +26,7 @@ const Top:React.FC<TopProps>= ({}) => {
     const [userInfo,setUserInfo] = useState<UserInfo>({});
     const [showNoStamina,setShowNoStamina] = useState<boolean>(false);
     const [timer,setTimer] = useState<any>(null);
-    const [showDailyTask,setShowDailyTask] = useState<boolean>(true);
+    const [showDailyTask,setShowDailyTask] = useState<boolean>(false);
 
     usePageEvent('onLoad',()=>{
         wxLogin((data:UserInfo)=>{
