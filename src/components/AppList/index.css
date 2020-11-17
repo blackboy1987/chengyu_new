@@ -4,27 +4,27 @@
 
 .page .head .img.data-v-30b63fc7 {
     width: 100%;
-    height: 188rpx;
+    height: 188px;
 }
 
 .page .title.data-v-30b63fc7 {
-    height: 60rpx;
+    height: 60px;
 }
 
 .page .title .line.data-v-30b63fc7 {
     width: 100%;
-    height: 2rpx;
+    height: 2px;
     background-color: #b1b1b1;
     position: absolute;
     left: 0;
-    top: 30rpx;
+    top: 30px;
 }
 
 .page .title .font.data-v-30b63fc7 {
     z-index: 2;
     background-color: #f5f5f5;
-    padding-left: 10rpx;
-    padding-right: 10rpx;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .page .list.data-v-30b63fc7 {
@@ -32,12 +32,12 @@
 }
 
 .page .list-item.data-v-30b63fc7 {
-    width: 223rpx;
-    height: 300rpx;
+    width: 223px;
+    height: 300px;
     border: 1px solid #ddd;
     background-color: #fff;
-    border-radius: 20rpx;
-    box-shadow: 0 0 6rpx 6rpx rgba(0,0,0,.02);
+    border-radius: 20px;
+    box-shadow: 0 0 6px 6px rgba(0,0,0,.02);
     position: relative;
     overflow: hidden;
 }
@@ -55,38 +55,38 @@
 }
 
 .page .list-item .thumbnail.data-v-30b63fc7 {
-    width: 100rpx;
-    height: 100rpx;
+    width: 100px;
+    height: 100px;
     border-radius: 100%;
     border: 2px solid #fff;
     z-index: 2;
 }
 
 .page .list-item .name.data-v-30b63fc7 {
-    height: 42rpx;
+    height: 42px;
     overflow: hidden;
 }
 
 .page .scroll-wrap.data-v-30b63fc7 {
-    height: 500rpx;
-    margin-bottom: 20rpx;
+    height: 500px;
+    margin-bottom: 20px;
 }
 
 .page .task.data-v-30b63fc7 {
-    height: 160rpx;
+    height: 160px;
     background-color: #ffefd6;
 }
 
 .page .task .btn.data-v-30b63fc7 {
-    width: 200rpx;
+    width: 200px;
 }
 
 .page .task .progress.data-v-30b63fc7 {
     width: 100%;
-    height: 20rpx;
+    height: 20px;
     background-color: #fff;
     position: relative;
-    border-radius: 20rpx;
+    border-radius: 20px;
     overflow: hidden;
 }
 

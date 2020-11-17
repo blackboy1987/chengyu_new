@@ -12,8 +12,10 @@ import {imageUrl} from "@/util/utils";
 import NoStamina from "@/components/NoStamina";
 import {updateUserInfo} from "@/util/httpUtils";
 
+interface TopProps {
+}
 
-const Top= () => {
+const Top:React.FC<TopProps>= ({}) => {
     const [systemInfo,setSystemInfo] = useState<{[key:string]:any}>(wxGetSystemInfoSync);
     const [sh,setSh] = useState<boolean>(false);
     const [forced,setForced] = useState<boolean>(false);
@@ -37,7 +39,7 @@ const Top= () => {
             updateUserInfo(data=>{
                 setUserInfo(data);
             })
-        },5e3))
+        },3e3))
     });
     usePageEvent('onHide',()=>{
         if(timer){
@@ -125,7 +127,7 @@ const Top= () => {
                 ) : null
             }
             {
-                showNoStamina ? (<NoStamina close={()=>setShowNoStamina(false)}  />) : null
+                showNoStamina ? (<NoStamina onClose={()=>setShowNoStamina(false)}  />) : null
             }
         </>
     );

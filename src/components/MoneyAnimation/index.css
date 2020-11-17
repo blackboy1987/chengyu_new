@@ -10,13 +10,13 @@
 }
 
 .collect-money .image {
-    width: 40rpx;
-    height: 45rpx;
+    width: 40px;
+    height: 45px;
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-left: -25rpx;
-    margin-top: -28rpx;
+    margin-left: -25px;
+    margin-top: -28px;
     opacity: 0;
 }
 

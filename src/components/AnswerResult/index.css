@@ -1,6 +1,6 @@
 .popup-main.data-v-389d38fc {
-    width: 540rpx;
-    height: 680rpx;
+    width: 540px;
+    height: 680px;
     position: relative;
 }
 
@@ -22,28 +22,28 @@
 
 .popup-main .light.data-v-389d38fc {
     position: absolute;
-    right: 80rpx;
-    top: 266rpx;
-    padding: 20rpx;
+    right: 80px;
+    top: 266px;
+    padding: 20px;
     z-index: 2;
     animation: rotate 15s linear infinite;
 }
 
 .popup-main .open2.data-v-389d38fc,.popup-main .open.data-v-389d38fc,.popup-main .share.data-v-389d38fc {
-    width: 182rpx;
-    height: 182rpx;
+    width: 182px;
+    height: 182px;
     position: absolute;
     left: 50%;
-    margin-left: -91rpx;
-    bottom: 120rpx;
+    margin-left: -91px;
+    bottom: 120px;
     z-index: 2;
 }
 
 .popup-main .open2.data-v-389d38fc {
-    width: 410rpx;
-    margin-left: -205rpx;
-    height: 104rpx;
-    bottom: 140rpx;
+    width: 410px;
+    margin-left: -205px;
+    height: 104px;
+    bottom: 140px;
 }
 
 .popup-main .spin.data-v-389d38fc {
@@ -59,38 +59,38 @@
 }
 
 .popup-main .zoom.data-v-389d38fc {
-    height: 60rpx;
+    height: 60px;
     animation: zoom .8s linear infinite;
     background-color: #ee5844;
 }
 
 .popup-main .close.data-v-389d38fc {
     position: absolute;
-    right: 10rpx;
-    top: 10rpx;
-    padding: 20rpx;
+    right: 10px;
+    top: 10px;
+    padding: 20px;
     color: #ac000a;
 }
 
 .popup-main.banner.data-v-389d38fc {
-    width: 680rpx;
+    width: 680px;
     height: auto;
     background-color: #ee5844;
-    border-radius: 20rpx;
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
 }
 
 .popup-main.banner .banner-ad.data-v-389d38fc {
     width: 100%;
-    min-height: 250rpx;
+    min-height: 250px;
     background-color: #fff;
     position: relative;
 }
 
 .popup-main.banner .banner-ad .ad-unit.data-v-389d38fc {
-    width: 600rpx;
-    padding: 0 40rpx;
+    width: 600px;
+    padding: 0 40px;
     box-sizing: content-box;
     -webkit-box-ordinal-group: 2;
     order: 1;
@@ -118,7 +118,7 @@
 }
 
 .popup-main.banner .banner-content.data-v-389d38fc {
-    height: 350rpx;
+    height: 350px;
     position: relative;
 }
 
@@ -127,39 +127,39 @@
 }
 
 .popup-main.banner .banner-content .light.data-v-389d38fc {
-    width: 350rpx;
-    height: 350rpx;
+    width: 350px;
+    height: 350px;
     position: absolute;
     left: 49%;
     top: -1%;
-    margin-left: -175rpx;
+    margin-left: -175px;
     z-index: 1;
 }
 
 .popup-main.videoBanner.data-v-389d38fc {
-    width: 680rpx;
+    width: 680px;
     height: auto;
     background-color: #ee5844;
-    border-radius: 20rpx;
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
 }
 
 .popup-main.videoBanner .video-banner.data-v-389d38fc {
-    min-height: 500rpx;
+    min-height: 500px;
 }
 
 .popup-main.gridAd.data-v-389d38fc {
-    width: 680rpx;
+    width: 680px;
     height: auto;
     background-color: #ee5844;
-    border-radius: 20rpx;
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
 }
 
 .popup-main.gridAd .banner-content.data-v-389d38fc {
-    height: 350rpx;
+    height: 350px;
     position: relative;
     z-index: 2;
 }
@@ -169,29 +169,29 @@
 }
 
 .popup-main.gridAd .banner-content .light.data-v-389d38fc {
-    width: 350rpx;
-    height: 350rpx;
+    width: 350px;
+    height: 350px;
     position: absolute;
     left: 49%;
     top: -1%;
-    margin-left: -175rpx;
+    margin-left: -175px;
     z-index: 1;
 }
 
 .popup-main.gridAd .grid.data-v-389d38fc {
     overflow: hidden;
-    border-bottom-left-radius: 20rpx;
-    border-bottom-right-radius: 20rpx;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .popup-main.gridAd .grid-wrap.data-v-389d38fc {
     overflow: hidden;
-    min-height: 200rpx;
+    min-height: 200px;
 }
 
 .popup .no-ad.data-v-389d38fc {
-    width: 680rpx;
-    min-height: 250rpx;
+    width: 680px;
+    min-height: 250px;
     position: absolute;
     left: 0;
     top: 0;
@@ -201,8 +201,8 @@
 
 .popup .no-ad-btn.data-v-389d38fc {
     width: 60%;
-    height: 100rpx;
-    border: 2rpx dashed #f72526;
+    height: 100px;
+    border: 2px dashed #f72526;
     color: #f72526;
     position: relative;
     animation: bs-data-v-389d38fc .8s linear infinite;

@@ -1,6 +1,6 @@
 .popup-main {
-    width: 540rpx;
-    height: 680rpx;
+    width: 540px;
+    height: 680px;
     position: relative;
 }
 
@@ -25,14 +25,14 @@
 }
 
 .popup-main .btn-again {
-    width: 410rpx;
-    margin-top: 78rpx;
+    width: 410px;
+    margin-top: 78px;
 }
 
 .popup-main .close {
     position: absolute;
-    right: 20rpx;
-    top: 20rpx;
-    padding: 20rpx;
+    right: 20px;
+    top: 20px;
+    padding: 20px;
     color: #ac000a;
 }

@@ -42,9 +42,7 @@ export default () => {
     const [showNoStamina,setShowNoStamina] = useState<boolean>(false);
 
     usePageEvent('onLoad',()=>{
-
         setShowNoStamina(true);
-
         game((data:GameInfo)=>{
             setGameInfo({...data,continuous_count:2,continuous_max:10});
         });
