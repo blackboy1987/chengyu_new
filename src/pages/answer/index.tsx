@@ -15,6 +15,8 @@ import AnswerFailure from "@/components/AnswerFailure";
 import Top from "@/components/Top";
 import {imageUrl} from "@/util/utils";
 import {createRewardedVideoAd} from "@/util/adUtils";
+import NoStamina from "@/components/NoStamina";
+import ReceiveSuccess from "@/components/ReceiveSuccess";
 
 export default () => {
     const [systemInfo,setSystemInfo] = useState<{[key:string]:any}>(wxGetSystemInfoSync);
@@ -33,17 +35,18 @@ export default () => {
     });
     const [rewardedVideoAd,setRewardedVideoAd] = useState(null);
 
-    const [success,setSuccess] = useState<boolean | null>(null);
+    const [success,setSuccess] = useState<number>(-1);
+    const [showReceiveSuccess,setShowReceiveSuccess] = useState<boolean>(false);
+    const [showAnswerResult,setShowAnswerResult] = useState<boolean>(false);
+    const [showAnswerFailure,setShowAnswerFailure] = useState<boolean>(false);
 
     usePageEvent('onLoad',()=>{
         game((data:GameInfo)=>{
             setGameInfo({...data,continuous_count:2,continuous_max:10});
         });
         if(!rewardedVideoAd){
-            console.log("1111")
             const siteInfo:SiteInfo = getStorage("siteInfo");
             if(siteInfo.rewardedVideoAdId){
-                console.log("2222")
                 setRewardedVideoAd(createRewardedVideoAd(siteInfo.rewardedVideoAdId.replace(/[\n\r]/g,''),{
                     onLoad:function () {
                         console.log("ok");
@@ -66,9 +69,15 @@ export default () => {
         }
         setAnswer(text);
         if(idiom[position]===text){
-
+            setSuccess(0);
+            setShowAnswerFailure(false);
+            setShowReceiveSuccess(false);
+            setShowAnswerResult(true);
         }else{
-
+            setSuccess(1)
+            setShowAnswerFailure(true);
+            setShowReceiveSuccess(false);
+            setShowAnswerResult(false);
         }
     };
 
@@ -218,10 +227,36 @@ export default () => {
             <AppBanner />
           </View>
           {
-              success&&answer ? (<AnswerResult />) : null
+              success==0&&showAnswerResult ? <AnswerResult onClose={()=>{
+                  setSuccess(-1);
+                  setShowReceiveSuccess(false);
+                  setShowAnswerResult(false);
+                  setShowAnswerFailure(false);
+              }
+              } onSuccess={()=>{
+                  setSuccess(-1);
+                  setShowReceiveSuccess(true);
+                  setShowAnswerResult(false);
+                  setShowAnswerFailure(false);
+              }
+              } />:null
           }
           {
-              !success&&answer ? (<AnswerFailure onClose={()=>{setAnswer('');setSuccess(null)}} />) : null
+              success===1&&showAnswerFailure ? <AnswerFailure onClose={()=>{
+                  setSuccess(-1);
+                  setShowReceiveSuccess(false);
+                  setShowAnswerResult(false);
+                  setShowAnswerFailure(false);
+              }
+              } />:null
+          }
+          {
+              showReceiveSuccess ? (<ReceiveSuccess close={()=>{
+                  setShowReceiveSuccess(false);
+                  setShowAnswerResult(false);
+                  setShowAnswerFailure(false);
+              }
+              } />) : null
           }
       </View>
   );

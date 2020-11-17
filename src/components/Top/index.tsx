@@ -8,10 +8,11 @@ import './index.css';
 import {useState} from "react";
 
 import {btn_increase, btn_withdraw, icon_red_envelope, stamina} from "@/components/ImageComponent";
-import {wxGetSystemInfoSync, wxLogin} from "@/util/wxUtils";
+import {go, wxGetSystemInfoSync, wxLogin} from "@/util/wxUtils";
 import {usePageEvent} from "remax/macro";
 import {UserInfo} from "@/data";
 import {imageUrl} from "@/util/utils";
+import NoStamina from "@/components/NoStamina";
 
 
 const Top= () => {
@@ -22,6 +23,7 @@ const Top= () => {
     const [canIUse,setCanIUse] = useState<boolean>(false);
     const [moneyChange,setMoneyChange] = useState<boolean>(true);
     const [userInfo,setUserInfo] = useState<UserInfo>({});
+    const [showNoStamina,setShowNoStamina] = useState<boolean>(false);
 
     usePageEvent('onLoad',()=>{
         wxLogin((data:UserInfo)=>{
@@ -62,6 +64,7 @@ const Top= () => {
                                         moneyChange ? 'animation':'',
                                     )}>{userInfo.money ? userInfo.money + '元' : ''}</View>
                                 <Image
+                                    onTap={()=>go("/pages/account/index")}
                                     className="ml-05"
                                     src={imageUrl('btn_withdraw')}
                                     style={{
@@ -84,6 +87,7 @@ const Top= () => {
                     <View className="row justify-content-between align-items-center head-item-value2">
                         <Text className="font-14">{userInfo.point}</Text>
                         <Image
+                            onTap={()=>setShowNoStamina(true)}
                             className="ml-05"
                             src={imageUrl('btn_increase')}
                             style={{
@@ -104,6 +108,9 @@ const Top= () => {
                         <Text>现</Text>
                     </View>
                 ) : null
+            }
+            {
+                showNoStamina ? (<NoStamina close={()=>setShowNoStamina(false)}  />) : null
             }
         </>
     );

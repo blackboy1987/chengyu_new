@@ -5,26 +5,75 @@ import {Button} from 'remax/wechat';
 import classNames from 'classnames';
 import './index.css';
 import {useState} from "react";
-import CustomNavigation from "@/components/CustomNavigation";
-import PopupBase from "@/components/PopupBase";
+import {usePageEvent} from 'remax/macro';
 import PopupBottomAd from "@/components/PopupBottomAd";
 import CountdownClick from "@/components/CountdownClick";
 import {imageUrl} from "@/util/utils";
+import {getStorage, setStorage} from "@/util/wxUtils";
+import {SiteInfo} from "@/data";
 
 const options = {
     isDeductMoney:true,
     deductMoney:true,
     banner:'video',
-    receiveType:'grid'
+    receiveType:'banner'
 }
-const sh = true;
+const sh = false;
 const opening=true;
-const countdown = 3 ;
-const bannerInterval = 12;
-const bannerID = '1234';
-const showNoAd = true;
-const showShare = true;
-const AnswerResult= () => {
+const showNoAd = false;
+const showShare = false;
+
+interface AnswerResultProps{
+    onClose:()=>void;
+    onSuccess:()=>void;
+}
+
+const AnswerResult:React.FC<AnswerResultProps>= ({onClose,onSuccess}) => {
+    const [siteInfo,setSiteInfo] = useState<SiteInfo>(getStorage('siteInfo'));
+    const [bannerInterval,setBannerInterval] = useState<number>(10);
+    const [countDown,setCountDown] = useState<number>(0);
+    usePageEvent('onShow',()=>{
+        console.log("onShow");
+        const newCountDown= getStorage('countDown') || 0;
+        setCountDown(newCountDown);
+        console.log(newCountDown,bannerInterval);
+        if(newCountDown>=bannerInterval){
+            // open
+            onSuccess();
+        }else{
+            // tips
+            wx.showToast({
+                icon: "none",
+                title: "必须浏览"+bannerInterval+"秒以上！",
+                duration: 2e3
+            });
+            setCountDown(0);
+            setStorage('countDown',0);
+            onClose();
+        }
+    });
+    usePageEvent('onHide',()=>{
+        setStorage('countDown',0);
+        setInterval(()=>{
+            setStorage('countDown',parseInt(getStorage('countDown')|| '0')+1);
+        },1e3);
+        console.log("onHide");
+    });
+
+    const close = () =>{
+        wx.showToast({
+            icon: "none",
+            title: "观看广告领取红包，才算连续答题哦！",
+            duration: 2e3
+        })
+        wx.showModal({
+            content: "观看广告领取红包，才算连续答题哦！",
+            showCancel: false
+        })
+        if(onClose){
+            onClose();
+        }
+    }
 
     return (
         <View className="column justify-content-center align-items-center popup data-v-389d38fc">
@@ -68,7 +117,7 @@ const AnswerResult= () => {
                                 )
                             }
                             {
-                                !countdown ? (<View className="iconfont icon-close font-20 close data-v-389d38fc" />) : null
+                                !countDown ? (<View className="iconfont icon-close font-20 close data-v-389d38fc" />) : null
                             }
 
                         </View>
@@ -118,9 +167,8 @@ const AnswerResult= () => {
                                 )
                             }
                             {
-                                !countdown ? (<View className="iconfont icon-close font-20 close data-v-389d38fc" />) : null
+                                !countDown ? (<View className="iconfont icon-close font-20 close data-v-389d38fc" />) : null
                             }
-
                         </View>
                         {
                             !sh ? (<Image className="light data-v-389d38fc" src={imageUrl('light')} style={{width:350,height:350}} />) : null
@@ -148,11 +196,14 @@ const AnswerResult= () => {
                                 ) : null
                             }
                         </View>
-                        <View
-                            className="row flex-nowrap justify-content-center align-items-center banner-ad data-v-389d38fc">
-                            <View className="w-100 px-1 ad data-v-389d38fc">
-                                <ad className="data-v-389d38fc" unitId={bannerID} />
-                            </View>
+                        <View className="row flex-nowrap justify-content-center align-items-center banner-ad data-v-389d38fc">
+                            {
+                                siteInfo.bannerAdId ? (
+                                    <View className="w-100 px-1 ad data-v-389d38fc">
+                                        <ad className="data-v-389d38fc" unitId={siteInfo.bannerAdId} />
+                                    </View>
+                                ) : null
+                            }
                             {
                                 showNoAd ? (
                                     <View className="row justify-content-center align-items-center no-ad data-v-389d38fc">
@@ -174,10 +225,9 @@ const AnswerResult= () => {
                                     </View>
                                 ) : null
                             }
-
                         </View>
                         {
-                            !countdown ? (<View className="iconfont icon-close font-20 close data-v-389d38fc" />) : null
+                            !countDown ? (<View className="iconfont icon-close font-20 close data-v-389d38fc" onTap={close} />) : (<View className="iconfont icon-close font-20 close data-v-389d38fc" onTap={close} />)
                         }
                     </View>
                 ) : null
@@ -196,11 +246,16 @@ const AnswerResult= () => {
                                 ) : null
                             }
                         </View>
-                        <View className="row flex-nowrap justify-content-center align-items-center w-100 video-banner data-v-389d38fc">
-                            <ad adTheme="white" adType="video" className="data-v-389d38fc" unitId="adunit-808fd06361778e76" />
-                        </View>
                         {
-                            !countdown ? (
+                            siteInfo.videoAdId ? (
+                                <View className="row flex-nowrap justify-content-center align-items-center w-100 video-banner data-v-389d38fc">
+                                    <ad adTheme="white" adType="video" className="data-v-389d38fc" unitId={siteInfo.videoAdId} />
+                                </View>
+                            ) : null
+                        }
+
+                        {
+                            !countDown ? (
                                 <View className="iconfont icon-close font-20 close data-v-389d38fc"  />
                             ) : null
                         }
@@ -229,7 +284,9 @@ const AnswerResult= () => {
                         <View className="row flex-nowrap justify-content-center align-items-center w-100 bg-white pt-1 grid data-v-389d38fc">
                             <View className="w-100 grid-wrap position-relative data-v-389d38fc">
                                 <View className="w-100  data-v-389d38fc" style={{marginTop:-60,zIndex:2,position:'absolute',left:0,top:0}}>
-                                    <ad adTheme="white" adType="grid" className="data-v-389d38fc" gridCount="5" gridOpacity="1" unitId="adunit-108924707d706392" />
+                                    {
+                                        siteInfo.gridAdId ? (<ad adTheme="white" adType="grid" className="data-v-389d38fc" gridCount="5" gridOpacity="1" unitId={siteInfo.gridAdId} />) : null
+                                    }
                                 </View>
                                 {
                                     showNoAd ? (
@@ -254,12 +311,12 @@ const AnswerResult= () => {
                             </View>
                         </View>
                         {
-                            !countdown ? (<View className="iconfont icon-close font-20 close data-v-389d38fc"/>) : null
+                            !countDown ? (<View className="iconfont icon-close font-20 close data-v-389d38fc"/>) : null
                         }
                     </View>
                 ) : null
             }
-            <PopupBottomAd />
+            <PopupBottomAd show={true} />
             <CountdownClick />
         </View>
 

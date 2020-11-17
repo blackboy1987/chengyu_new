@@ -1,11 +1,11 @@
-.popup-base .popup-main.data-v-164f936c {
+.popup-base .popup-main {
     width: 620px;
     position: relative;
     border-radius: 40px;
     background-color: #fff;
 }
 
-.popup-base .popup-main .close.data-v-164f936c {
+.popup-base .popup-main .close {
     position: absolute;
     right: 20px;
     top: 20px;

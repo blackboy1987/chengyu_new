@@ -6,11 +6,11 @@ import {go} from "@/util/wxUtils";
 
 import Top from "@/components/Top";
 import {imageUrl} from "@/util/utils";
+import NoStamina from "@/components/NoStamina";
 const logoUrl = 'https://bootx-chengyu.oss-cn-hangzhou.aliyuncs.com/chengyu/static/images/logo/slogan.png';
 
 export default () => {
   const [sh,setSh] = useState<boolean>(false);
-
   const [broadcastData,setBroadcastData] = useState<string[]>(['*******获取奖励红包123.33 元'])
   const [g1,setG1] = useState<number>(-1);
     const toPlay=()=>{
@@ -67,7 +67,6 @@ export default () => {
             <Image className="w-100 h-100" src={imageUrl('home_icon_invite')} />
           </View>
         </View>
-
       </View>
   );
 };

@@ -142,7 +142,7 @@ const Account= () => {
         fail_result:'条件未达到，连续答对3题目',
     })
     const [invalid_user,setInvalid_user] = useState<boolean>(false);
-    const [showWithdrawTip,setShowWithdrawTip] = useState<boolean>(true);
+    const [showWithdrawTip,setShowWithdrawTip] = useState<boolean>(false);
     return (
         <View className="h-100 column page data-v-acc4b046">
             <CustomNavigation />
@@ -256,7 +256,7 @@ const Account= () => {
             </PopupBase>
             {
                 showWithdrawTip ? (
-                    <PopupBase className="popup-success data-v-acc4b046">
+                    <PopupBase className="popup-success data-v-acc4b046" close={()=>setShowWithdrawTip(false)}>
                         <View className="justify-content-center align-items-center my-4 data-v-acc4b046">
                             {
                                 invalid_user&&defaultItem.tag==='每日提' ? (
