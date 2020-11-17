@@ -5,17 +5,18 @@ import {Button} from 'remax/wechat';
 import classNames from 'classnames';
 import './index.css';
 import PopupBase from "@/components/PopupBase";
+import {useState} from "react";
 
 interface DailyTaskProps {
     show:boolean;
 }
 
-const listData = [
+const defaultListData = [
     {
         id:1,
-        tag:'新人提现',
-        description:'新人提现',
-        money:3.25,
+        tag:'连续答对20题目',
+        description:'连续答对20题',
+        money:0.3,
         g0:-1,
         g1:10,
         g2:10,
@@ -26,18 +27,98 @@ const listData = [
         current_ad_click_num:2,
         invite_number:2,
         current_invite_number:5,
-        g4:2,
-        g5:3,
+        g4:-1,
+        g5:-1,
         condition_complete:true,
+    },
+    {
+        id:1,
+        tag:'连续答对20题目',
+        description:'每天邀请3位好友',
+        money:0.6,
+        g0:-1,
+        g1:10,
+        g2:10,
+        g3:10,
+        total_answer_true:3,
+        current_answer_true:0,
+        ad_click_num:3,
+        current_ad_click_num:2,
+        invite_number:2,
+        current_invite_number:5,
+        g4:-1,
+        g5:0,
+        condition_complete:false,
+    },
+    {
+        id:1,
+        tag:'连续答对20题目',
+        description:'试玩15款小程序',
+        money:0.3,
+        g0:-1,
+        g1:10,
+        g2:10,
+        g3:10,
+        total_answer_true:3,
+        current_answer_true:0,
+        ad_click_num:3,
+        current_ad_click_num:2,
+        invite_number:2,
+        current_invite_number:5,
+        g4:-1,
+        g5:0,
+        condition_complete:false,
+    },
+    {
+        id:1,
+        tag:'连续答对20题目',
+        description:'签到3天，共36题',
+        money:0.3,
+        g0:-1,
+        g1:10,
+        g2:10,
+        g3:10,
+        total_answer_true:3,
+        current_answer_true:0,
+        ad_click_num:3,
+        current_ad_click_num:2,
+        invite_number:2,
+        current_invite_number:5,
+        g4:-1,
+        g5:-1,
+        condition_complete:false,
+    },
+    {
+        id:1,
+        tag:'连续答对20题目',
+        description:'签到7天，共100题',
+        money:0.5,
+        g0:-1,
+        g1:10,
+        g2:10,
+        g3:10,
+        total_answer_true:3,
+        current_answer_true:0,
+        ad_click_num:3,
+        current_ad_click_num:2,
+        invite_number:2,
+        current_invite_number:5,
+        g4:-1,
+        g5:-1,
+        condition_complete:false,
     }
 ]
 
 const DailyTask:React.FC<DailyTaskProps>= ({show}) => {
+
+    const [listData,setListData] = useState<any[]>(defaultListData);
+
+
     return (
-        <PopupBase close={()=>console.log("close")}>
+        <PopupBase title='每日提现' close={()=>console.log("close")}>
             <View className="column justify-content-center content">
                 {
-                    listData.map((item,index)=>{
+                    listData.map((item,index)=>(
                         <View
                             className={classNames(
                                 'row',
@@ -45,7 +126,7 @@ const DailyTask:React.FC<DailyTaskProps>= ({show}) => {
                                 'align-items-center',
                                 'p-1',
                                 'bg-gray-2',
-                                index?'mt-1':'',
+                                'mt-1'
                             )}
                             key={item.id}>
                             <View className="column justify-content-start flex-2 mr-2">
@@ -120,8 +201,8 @@ const DailyTask:React.FC<DailyTaskProps>= ({show}) => {
                                     </>
                                 )
                             }
-                        </View> 
-                    })
+                        </View>
+                    ))
                 }
             </View>
         </PopupBase>

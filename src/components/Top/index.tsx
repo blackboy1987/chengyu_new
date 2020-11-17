@@ -11,6 +11,7 @@ import {UserInfo} from "@/data";
 import {imageUrl} from "@/util/utils";
 import NoStamina from "@/components/NoStamina";
 import {updateUserInfo} from "@/util/httpUtils";
+import DailyTask from "@/components/DailyTask";
 
 interface TopProps {
 }
@@ -25,6 +26,7 @@ const Top:React.FC<TopProps>= ({}) => {
     const [userInfo,setUserInfo] = useState<UserInfo>({});
     const [showNoStamina,setShowNoStamina] = useState<boolean>(false);
     const [timer,setTimer] = useState<any>(null);
+    const [showDailyTask,setShowDailyTask] = useState<boolean>(true);
 
     usePageEvent('onLoad',()=>{
         wxLogin((data:UserInfo)=>{
@@ -117,7 +119,7 @@ const Top:React.FC<TopProps>= ({}) => {
             </View>
             {
                 !sh ? (
-                    <View className="column align-items-center p-1 float-task">
+                    <View onTap={()=>setShowDailyTask(true)} className="column align-items-center p-1 float-task">
                         <View className="dot" />
                         <Text>每</Text>
                         <Text>日</Text>
@@ -128,6 +130,9 @@ const Top:React.FC<TopProps>= ({}) => {
             }
             {
                 showNoStamina ? (<NoStamina onClose={()=>setShowNoStamina(false)}  />) : null
+            }
+            {
+                showDailyTask ? (<DailyTask show />):null
             }
         </>
     );

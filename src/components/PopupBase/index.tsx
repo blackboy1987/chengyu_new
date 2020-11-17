@@ -10,12 +10,12 @@ interface PopupBaseProps{
     className?:string;
     close:()=>void;
     title:string;
+    width?:number;
 }
 
-const PopupBase:React.FC<PopupBaseProps>= ({title,close,className,children}) => {
+const PopupBase:React.FC<PopupBaseProps>= ({width=680,title,close,className,children}) => {
 
     const [options,setOptions] = useState<{[key:string]:any}>({
-        width:680,
         btnText:'哈哈',
         button:'custom'
     });
@@ -24,7 +24,7 @@ const PopupBase:React.FC<PopupBaseProps>= ({title,close,className,children}) => 
             'column justify-content-center align-items-center popup popup-base data-v-164f936c',
             className
         )}>
-            <View className="column justify-content-between align-items-center px-2 popup-main data-v-164f936c" style={{width:options.width}}>
+            <View className="column justify-content-between align-items-center px-2 popup-main data-v-164f936c" style={{width:width}}>
                 <Text className="font-18 font-bold mt-2 data-v-164f936c">{title}</Text>
                 <View className="py-2 font-14 w-100 data-v-164f936c">
                     {children}

@@ -42,26 +42,29 @@ export default () => {
     const [showNoStamina,setShowNoStamina] = useState<boolean>(false);
 
     usePageEvent('onLoad',()=>{
-        setShowNoStamina(true);
         game((data:GameInfo)=>{
             setGameInfo({...data,continuous_count:2,continuous_max:10});
-        });
-        if(!rewardedVideoAd){
-            const siteInfo:SiteInfo = getStorage("siteInfo");
-            if(siteInfo.rewardedVideoAdId){
-                setRewardedVideoAd(createRewardedVideoAd(siteInfo.rewardedVideoAdId.replace(/[\n\r]/g,''),{
-                    onLoad:function () {
-                        console.log("ok");
-                    },
-                    onError:function (err) {
-                        console.log("err",err);
-                    },
-                    onClose:function (res) {
-                        console.log("res",res);
-                    }
-                }))
+            if(!rewardedVideoAd){
+                const siteInfo:SiteInfo = getStorage("siteInfo");
+                if(siteInfo.rewardedVideoAdId){
+                    setRewardedVideoAd(createRewardedVideoAd(siteInfo.rewardedVideoAdId.replace(/[\n\r]/g,''),{
+                        onLoad:function () {
+                            console.log("ok");
+                        },
+                        onError:function (err) {
+                            console.log("err",err);
+                        },
+                        onClose:function (res) {
+                            if(res.isEnded){
+                                console.log(data.position,data.idiom,data.idiom[data.position]);
+                                setAnswer(data.idiom[data.position]);
+                            }
+                            console.log("res",res);
+                        }
+                    }))
+                }
             }
-        }
+        });
     });
 
     const select=(text:string)=>{
