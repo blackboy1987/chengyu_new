@@ -10,6 +10,7 @@ import {usePageEvent} from "remax/macro";
 import {UserInfo} from "@/data";
 import {imageUrl} from "@/util/utils";
 import NoStamina from "@/components/NoStamina";
+import {updateUserInfo} from "@/util/httpUtils";
 
 
 const Top= () => {
@@ -21,12 +22,29 @@ const Top= () => {
     const [moneyChange,setMoneyChange] = useState<boolean>(true);
     const [userInfo,setUserInfo] = useState<UserInfo>({});
     const [showNoStamina,setShowNoStamina] = useState<boolean>(false);
+    const [timer,setTimer] = useState<any>(null);
 
     usePageEvent('onLoad',()=>{
         wxLogin((data:UserInfo)=>{
             setUserInfo(data);
         });
     });
+    usePageEvent('onShow',()=>{
+        if(timer){
+            clearInterval(timer);
+        }
+        setTimer(setInterval(()=>{
+            updateUserInfo(data=>{
+                setUserInfo(data);
+            })
+        },5e3))
+    });
+    usePageEvent('onHide',()=>{
+        if(timer){
+            clearInterval(timer);
+        }
+    });
+
     return (
         <>
             {
@@ -46,7 +64,7 @@ const Top= () => {
                     !sh ? (
                         <View className="row align-items-center ml-15 head-item">
                             <Image
-                                src={imageUrl('icon_red_envelope')}
+                                src={imageUrl('common_icon_red_envelope')}
                                 style={{
                                     width:61,
                                     height:68

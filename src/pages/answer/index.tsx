@@ -8,15 +8,15 @@ import './index.css';
 import {useState} from "react";
 import AppBanner from "@/components/AppBanner";
 import {getStorage, go, wxGetSystemInfoSync} from "@/util/wxUtils";
-import {game} from "@/util/httpUtils";
+import {check, discount, game} from "@/util/httpUtils";
 import {GameInfo, SiteInfo} from "@/data";
 import AnswerResult from "@/components/AnswerResult";
 import AnswerFailure from "@/components/AnswerFailure";
 import Top from "@/components/Top";
 import {imageUrl} from "@/util/utils";
 import {createRewardedVideoAd} from "@/util/adUtils";
-import NoStamina from "@/components/NoStamina";
 import ReceiveSuccess from "@/components/ReceiveSuccess";
+import NoStamina from "@/components/NoStamina";
 
 export default () => {
     const [systemInfo,setSystemInfo] = useState<{[key:string]:any}>(wxGetSystemInfoSync);
@@ -39,8 +39,12 @@ export default () => {
     const [showReceiveSuccess,setShowReceiveSuccess] = useState<boolean>(false);
     const [showAnswerResult,setShowAnswerResult] = useState<boolean>(false);
     const [showAnswerFailure,setShowAnswerFailure] = useState<boolean>(false);
+    const [showNoStamina,setShowNoStamina] = useState<boolean>(false);
 
     usePageEvent('onLoad',()=>{
+
+        setShowNoStamina(true);
+
         game((data:GameInfo)=>{
             setGameInfo({...data,continuous_count:2,continuous_max:10});
         });
@@ -63,23 +67,43 @@ export default () => {
     });
 
     const select=(text:string)=>{
+        check((data)=>{
+            if(data.code===0){
+                ok(text);
+            }else{
+
+            }
+        });
+    };
+
+    const ok=(text:string)=>{
         const {position,idiom} = gameInfo;
         if(text===answer){
             return;
         }
         setAnswer(text);
         if(idiom[position]===text){
+            // 回答正确
             setSuccess(0);
             setShowAnswerFailure(false);
             setShowReceiveSuccess(false);
             setShowAnswerResult(true);
+            setShowNoStamina(false);
         }else{
-            setSuccess(1)
+            // 回答错误。请求接口扣除相应的积分
+            discount({
+                memo:'答题错误',
+                level:gameInfo.level,
+            },(data)=>{
+                console.log("data",data);
+            }),
+                setSuccess(1)
             setShowAnswerFailure(true);
             setShowReceiveSuccess(false);
             setShowAnswerResult(false);
+            setShowNoStamina(false);
         }
-    };
+    }
 
     const tip = () =>{
         if(rewardedVideoAd){
@@ -232,12 +256,14 @@ export default () => {
                   setShowReceiveSuccess(false);
                   setShowAnswerResult(false);
                   setShowAnswerFailure(false);
+                  setShowNoStamina(false);
               }
               } onSuccess={()=>{
                   setSuccess(-1);
                   setShowReceiveSuccess(true);
                   setShowAnswerResult(false);
                   setShowAnswerFailure(false);
+                  setShowNoStamina(false);
               }
               } />:null
           }
@@ -247,6 +273,7 @@ export default () => {
                   setShowReceiveSuccess(false);
                   setShowAnswerResult(false);
                   setShowAnswerFailure(false);
+                  setShowNoStamina(false);
               }
               } />:null
           }
@@ -255,8 +282,20 @@ export default () => {
                   setShowReceiveSuccess(false);
                   setShowAnswerResult(false);
                   setShowAnswerFailure(false);
+                  setShowNoStamina(false);
               }
               } />) : null
+          }
+          {
+              showNoStamina ? (
+                  <NoStamina onClose={()=>{
+                      console.log("onClose");
+                      setShowReceiveSuccess(false);
+                      setShowAnswerResult(false);
+                      setShowAnswerFailure(false);
+                      setShowNoStamina(false);
+                  }} />
+              ) : null
           }
       </View>
   );

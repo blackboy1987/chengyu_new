@@ -9,13 +9,13 @@ import PopupBottomAd from "@/components/PopupBottomAd";
 interface PopupBaseProps{
     className?:string;
     close:()=>void;
+    title:string;
 }
 
-const PopupBase:React.FC<PopupBaseProps>= ({close,className,children}) => {
+const PopupBase:React.FC<PopupBaseProps>= ({title,close,className,children}) => {
 
     const [options,setOptions] = useState<{[key:string]:any}>({
-        title:'haha',
-        width:600,
+        width:680,
         btnText:'哈哈',
         button:'custom'
     });
@@ -25,7 +25,7 @@ const PopupBase:React.FC<PopupBaseProps>= ({close,className,children}) => {
             className
         )}>
             <View className="column justify-content-between align-items-center px-2 popup-main data-v-164f936c" style={{width:options.width}}>
-                <Text className="font-18 font-bold mt-2 data-v-164f936c">{options.title}</Text>
+                <Text className="font-18 font-bold mt-2 data-v-164f936c">{title}</Text>
                 <View className="py-2 font-14 w-100 data-v-164f936c">
                     {children}
                 </View>

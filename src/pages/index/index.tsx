@@ -10,6 +10,7 @@ import Ranking from "@/components/Ranking";
 import RedEnvelope from "@/components/RedEnvelope";
 import Signin from "@/components/Signin";
 import VideoRedEnvelope from "@/components/VideoRedEnvelope";
+import DailyTask from "@/components/DailyTask";
 const logoUrl = 'https://bootx-chengyu.oss-cn-hangzhou.aliyuncs.com/chengyu/static/images/logo/slogan.png';
 
 export default () => {
@@ -73,7 +74,7 @@ export default () => {
           {
               showRanking ? (<Ranking onClose={()=>setShowRanking(false)} />) : null
           }
-          <VideoRedEnvelope />
+          <Signin />
       </View>
   );
 };
