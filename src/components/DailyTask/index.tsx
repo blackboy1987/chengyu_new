@@ -115,7 +115,7 @@ const DailyTask:React.FC<DailyTaskProps>= ({show}) => {
 
 
     return (
-        <PopupBase title='每日提现' close={()=>console.log("close")}>
+        <PopupBase title='每日提现' button='custom' close={()=>console.log("close")}>
             <View className="column justify-content-center content">
                 {
                     listData.map((item,index)=>(

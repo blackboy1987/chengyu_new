@@ -17,6 +17,8 @@ import {imageUrl} from "@/util/utils";
 import {createRewardedVideoAd} from "@/util/adUtils";
 import ReceiveSuccess from "@/components/ReceiveSuccess";
 import NoStamina from "@/components/NoStamina";
+import Signin from "@/components/Signin";
+import RedEnvelope from "@/components/RedEnvelope";
 
 let gameInfo1:GameInfo = {
     idiom:[],
@@ -321,6 +323,7 @@ export default () => {
                   }} />
               ) : null
           }
+          <RedEnvelope />
       </View>
   );
 };

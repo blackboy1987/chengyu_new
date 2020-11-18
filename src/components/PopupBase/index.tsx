@@ -11,18 +11,17 @@ interface PopupBaseProps{
     close:()=>void;
     title:string;
     width?:number;
+    button?:string;
 }
 
-const PopupBase:React.FC<PopupBaseProps>= ({width=680,title,close,className,children}) => {
+const PopupBase:React.FC<PopupBaseProps>= ({button,width=680,title,close,className,children}) => {
 
     const [options,setOptions] = useState<{[key:string]:any}>({
         btnText:'哈哈',
-        button:'custom'
     });
     return (
         <View className={classNames(
             'column justify-content-center align-items-center popup popup-base data-v-164f936c',
-            className
         )}>
             <View className="column justify-content-between align-items-center px-2 popup-main data-v-164f936c" style={{width:width}}>
                 <Text className="font-18 font-bold mt-2 data-v-164f936c">{title}</Text>
@@ -30,7 +29,7 @@ const PopupBase:React.FC<PopupBaseProps>= ({width=680,title,close,className,chil
                     {children}
                 </View>
                 {
-                    options.button !=='custom' ? (
+                    button !=='custom' ? (
                         <View className="btn btn-red w-100 mb-2 data-v-164f936c">{options.btnText || '好的'}</View>
                     ) : null
                 }

@@ -16,7 +16,7 @@ const options = {
     awards:[
         {
             is_get:false,
-            day:7,
+            day:1,
             list:[{
                 icon:'1',
                 name:'哈哈'
