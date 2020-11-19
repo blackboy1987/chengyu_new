@@ -8,15 +8,12 @@ import CountdownClick from "@/components/CountdownClick";
 
 interface PopupBaseProps{
     close:()=>void;
+    money:number;
 }
 
 const countdown = 3;
 
-const ReceiveSuccess:React.FC<PopupBaseProps>= ({close}) => {
-
-    const [options,setOptions] = useState<{[key:string]:any}>({
-        value:2.33,
-    });
+const ReceiveSuccess:React.FC<PopupBaseProps>= ({money,close}) => {
     return (
         <View className="column justify-content-center align-items-center popup data-v-c995a346">
             <View className="popup-main data-v-c995a346">
@@ -25,7 +22,7 @@ const ReceiveSuccess:React.FC<PopupBaseProps>= ({close}) => {
                     <View className="column font-write align-center data-v-c995a346">
                         <Text className="font-22 mt-5 t2 data-v-c995a346">领取成功</Text>
                         <Text className="mt-1 ml-15 t1 data-v-c995a346">
-                            <Text className="font-50 font-bold data-v-c995a346">{options.value}</Text>
+                            <Text className="font-50 font-bold data-v-c995a346">{money}</Text>
                             <Text className="font-14 ml-05 data-v-c995a346">元</Text>
                         </Text>
                     </View>

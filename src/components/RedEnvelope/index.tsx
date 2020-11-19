@@ -7,20 +7,23 @@ import {imageUrl} from "@/util/utils";
 import PopupBottomAd from "@/components/PopupBottomAd";
 import {useState} from "react";
 import {usePageEvent} from "remax/macro";
-import {game} from "@/util/httpUtils";
-import {GameInfo, SiteInfo} from "@/data";
-import {getStorage} from "@/util/wxUtils";
+import {SiteInfo} from "@/data";
+import {getStorage, setStorage, showModal} from "@/util/wxUtils";
 import {createRewardedVideoAd} from "@/util/adUtils";
+import {openRedEnvelope} from "@/util/httpUtils";
 
 interface RedEnvelopeProps {
     type:string;
+    onClose:(money:number)=>void;
 }
-const sh = true;
 
-const RedEnvelope:React.FC<RedEnvelopeProps>= ({type}) => {
+const siteInfo:SiteInfo = getStorage("siteInfo");
+
+const RedEnvelope:React.FC<RedEnvelopeProps>= ({onClose,type}) => {
     const [rewardedVideoAd,setRewardedVideoAd] = useState<{[key:string]:any}|null>(null);
     const [opening,setOpening] = useState<boolean>(false);
     const [redEnvelopeType,setRedEnvelopeType] = useState<number>(0);
+    const [redEnvelopeMoney,setRedEnvelopeMoney] = useState<number>(0);
     const [finish,setFinish] = useState<boolean>(false);
     usePageEvent('onLoad',()=>{
         createRewardedVideo();
@@ -28,7 +31,7 @@ const RedEnvelope:React.FC<RedEnvelopeProps>= ({type}) => {
 
     const createRewardedVideo=()=>{
         if(!rewardedVideoAd){
-            const siteInfo:SiteInfo = getStorage("siteInfo");
+            console.log("siteInfo",siteInfo);
             if(siteInfo.rewardedVideoAdId){
                 setRewardedVideoAd(createRewardedVideoAd(siteInfo.rewardedVideoAdId.replace(/[\n\r]/g,''),{
                     onClose:function (res) {
@@ -43,14 +46,30 @@ const RedEnvelope:React.FC<RedEnvelopeProps>= ({type}) => {
     const openVideo = () =>{
         if(rewardedVideoAd){
             rewardedVideoAd.show()
+                .catch(() => {
+                    rewardedVideoAd.load()
+                        .then(() => rewardedVideoAd.show())
+                        .catch(err => {
+                            console.log('激励视频 广告显示失败',err);
+                        })
+                })
         }
     }
 
     const open = () =>{
         if(finish){
             setOpening(true);
+            openRedEnvelope({
+                redEnvelopeType:0,
+            },data=>{
+                setRedEnvelopeMoney(data.money);
+                setStorage('userInfo',data.userInfo);
+                console.log(data,"data");
+                setOpening(true);
+                onClose(data.money);
+            })
         }else{
-            wx.showModal({
+            showModal({
                 title:'提醒',
                 content:'观看完整视频，才能领取红包',
                 showCancel:false,
@@ -90,14 +109,14 @@ const RedEnvelope:React.FC<RedEnvelopeProps>= ({type}) => {
                             src={imageUrl('redEnvelope_open')} />
                     </View>
                     {
-                        sh ? (
+                        siteInfo.sh ? (
                             <Text onTap={openVideo} className="font-12 font-write mb-2 t3 hb-tip">
                                 观看完整视频领取红包
                             </Text>) : (
                                 <Text className="font-12 font-write mb-2 t3 hb-tip">可提现</Text>
                         )
                     }
-                    <View className="iconfont icon-close font-20 p-1 close" />
+                    <View className="iconfont icon-close font-20 p-1 close" onTap={()=>onClose(redEnvelopeMoney)} />
                 </View>
                 <Image
                     className="light"

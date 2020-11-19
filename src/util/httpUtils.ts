@@ -53,3 +53,11 @@ export const updateUserInfo=(callback:(res:any)=>void)=>{
         callback(result.data);
     });
 }
+
+export const openRedEnvelope=(params:{[key:string]:any},callback:(res:any)=>void)=>{
+    request("api1/openRedEnvelope",(result:any)=>{
+        callback(result.data);
+    },{
+        data:params
+    });
+}

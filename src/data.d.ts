@@ -45,4 +45,5 @@ export interface SiteInfo {
     shareRewardPoint?: number;
     videoAdId?: string;
     videoFrontAdId?: string;
+    sh?:boolean;
 }
